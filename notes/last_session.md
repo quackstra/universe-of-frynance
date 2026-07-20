@@ -1,28 +1,42 @@
 # Last Session — Universe of Frynance
 
-## Run 0 — framework fork (2026-07-20)
+## Run 1 — sourced mass balance + dashboard (2026-07-20)
 
-Forked the house framework from Universe of Movement. Established:
+Pushed to GitHub (private) and ran a research pass replacing Run-0 placeholders
+with sourced figures.
 
-- **BRIEF.md / TAXONOMY.md** — mission, four-tier fate taxonomy, mass-balance
-  principle, MUSHT definition (raw-potato volume, 0.75 cm cut).
-- **data/global_massbalance.json** — Big Number (375 Mt) + Tier-1 fates (sum to
-  100 %) + Tier-2 processing split + FLW overlay. All shares 🔴 placeholders.
-- **tools/massbalance.py** — Big Number + the 100 % reconciliation gate
-  (exits non-zero on failure). Verified: gate PASSES.
-- **tools/musht.py** — MUSHT. Verified: idealized 3.84 B miles (past Pluto),
-  real 0.33 B miles (8.5 % of production).
-- **Pipeline stubs** — scout (config + backlog + scout.py), architect/SKILL.md,
-  elves/run_protocol.md + validation_gates.sh, run.sh.
+### Data locked (with citations in data/global_massbalance.json)
+- **Production 375 Mt** (FAOSTAT 2022; China 95.5 Mt / 25.5 %, India 56 Mt /
+  15 %). 🟢
+- **Tier-1 fates** (sum to 100 %): Fresh 52 % 🟡 · Processing 14 % 🟡 · Feed 12 %
+  🔴 · Seed 9 % 🔴 · Waste(accounted) 8 % 🔴 · Industrial 5 % 🔴.
+- **Tier-2 processing**: Frozen 50 · Crisps 24 · Dehydrated 14 · Canned/other 12
+  (% of processing). Fries = frozen × 85 % = **22.3 Mt = 5.9 % of production**.
+- **FLW overlay ~45 %** (~169 Mt, range 25–60 %) — reported separately, NOT in
+  the 100 % (anti-double-count vs the 8 % FBS losses line).
 
-## Decisions locked with Ferg
+### MUSHT (verified via tools/musht.py)
+- Idealized **3.84 B miles** (41 AU, past Pluto).
+- Real **0.23 B miles** (fries only). Gap ≈ 3.6 B miles → "~1 potato in 17 is a
+  fry."
 
-1. MUSHT is on a **raw-potato-volume** basis (not cooked/finished fry).
-2. **Chain-level fry cuts (curly vs crinkle by restaurant) = Run-2 stretch**,
-   parked as FRY-R2-001. Run 1 stops at Tier-2 + total fries + cut mix.
+### Capsules written
+fresh_food, processing (+ frozen_fries), waste_loss — each REPORT.md with sources.
 
-## Next (Run 1)
+### Dashboard
+Self-contained `index.html` (Chart.js, potato/fry palette) forked from the
+Movement template: hero (Production / MUSHT / Waste), fate leaderboard, fate
+doughnut + processing bar, MUSHT deep-dive, insights.
 
-Replace every 🔴 placeholder with sourced figures, inside-out (fresh →
-processing → fries). Start at FRY-001 (lock FAOSTAT production + 10yr timeseries).
-Build the Sankey chart. Keep the 100 % gate green throughout.
+## ⚠️ Open decision for Ferg
+**GitHub Pages is blocked because the repo is private** ("plan does not support
+Pages for this repository"). The sibling sites (Finance, Movement) are **public**.
+To publish at `quackstra.github.io/universe-of-frynance`, the repo must be flipped
+public (or the plan upgraded). Did NOT flip it — public is a one-way door and
+needs Ferg's explicit OK. The dashboard is committed and ready the moment it goes
+public.
+
+## Next (Run 2)
+Country-weighted FBS rebuild (China+India+EU+US) to move Tier-1 to 🟡/🟢; USDA
+ERS + Eurostat processing tonnages; stage-resolved FLW; Sankey chart; parked
+chain-level fry-cut deep dive (FRY-R2-001).

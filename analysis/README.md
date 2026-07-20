@@ -2,24 +2,26 @@
 
 The Big Number and its fates. Each fate becomes a capsule under
 `analysis/<fate>/<category>/` with a `REPORT.md`, `data.json`, `workings/`, and
-charts. Run-0 shares are 🔴 placeholders that reconcile to 100 % by construction.
+charts. Run-1 shares are sourced (FAO / CIP / FAOSTAT) and reconcile to 100 %.
 
-## Fate Leaderboard (Run 0 — placeholders)
+## Fate Leaderboard (Run 1 — sourced)
 
 | # | Fate | Mt/yr | Share | Confidence |
 |---|------|-------|-------|------------|
-| 1 | Fresh / table food | 165.0 | 44.0 % | 🔴 |
-| 2 | Processing (food) | 75.0 | 20.0 % | 🔴 |
-| 3 | Animal feed | 41.2 | 11.0 % | 🔴 |
-| 4 | Waste & loss (accounted) | 37.5 | 10.0 % | 🔴 |
-| 5 | Seed (replanting) | 33.8 | 9.0 % | 🔴 |
-| 6 | Industrial (non-food) | 22.5 | 6.0 % | 🔴 |
+| 1 | [Fresh / table food](fresh_food/REPORT.md) | 195.0 | 52.0 % | 🟡 |
+| 2 | [Processing (food)](processing/REPORT.md) | 52.5 | 14.0 % | 🟡 |
+| 3 | Animal feed | 45.0 | 12.0 % | 🔴 |
+| 4 | Seed (replanting) | 33.8 | 9.0 % | 🔴 |
+| 5 | [Waste & loss (accounted)](waste_loss/REPORT.md) | 30.0 | 8.0 % | 🔴 |
+| 6 | Industrial (non-food) | 18.8 | 5.0 % | 🔴 |
 | | **TOTAL** | **375.0** | **100 %** | — |
 
-**Processing (Tier 2) →** Frozen 37.5 · Crisps 16.5 · Dehydrated 11.2 ·
-Canned/other 9.8 Mt. **Fries stream ≈ 31.9 Mt (8.5 % of all production).**
+**Processing (Tier 2) →** Frozen 26.2 · Crisps 12.6 · Dehydrated 7.3 ·
+Canned/other 6.3 Mt. **[Fries stream](processing/frozen_fries/REPORT.md) ≈ 22.3 Mt
+(5.9 % of all production).**
 
-**Conscience overlay (not in the 100 %):** ~33 % FLW ≈ 124 Mt lost/wasted.
+**Conscience overlay (not in the 100 %):** ~45 % full-chain FLW ≈ 169 Mt
+lost/wasted (range 25–60 %). See [waste_loss](waste_loss/REPORT.md).
 
 ## Aggregate
 

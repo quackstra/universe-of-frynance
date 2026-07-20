@@ -16,8 +16,8 @@ Total global fresh-weight potato production, all varieties, all countries
 | **Production** | **~375 Mt / yr** | The Big Number |
 | **Per-capita** | **~46 kg/person/yr** | The average human's annual spud |
 | **MUSHT (idealized)** | **~3.84 billion miles of fry** | A single 0.75 cm fry, *past Pluto* |
-| **MUSHT (real)** | **~0.33 billion miles** | Only the ~8.5 % that actually becomes fries |
-| **Conscience Number** | **~1 in 3 wasted** | Spuds that never reach a mouth |
+| **MUSHT (real)** | **~0.23 billion miles** | Only the ~5.9 % that actually becomes fries |
+| **Conscience Number** | **~45 % wasted** | Spuds lost field→fork (roots & tubers waste most) |
 
 ## MUSHT — Make Underutilized Spuds Have Taste
 
@@ -97,13 +97,15 @@ python3 tools/musht.py         # recompute MUSHT
 
 ## Status
 
-**Run 0 — framework fork (2026-07-20):** forked the house framework from Universe
-of Movement; established the potato mass-balance spine, the 100 % gate, and a
-working MUSHT calculator (idealized 3.84 B miles / real 0.33 B miles). All Tier-1
-and Tier-2 shares are 🔴 placeholders that reconcile to 100 % by construction.
-**Next (Run 1):** replace every placeholder with sourced FAOSTAT / USDA ERS /
-Eurostat figures, write per-fate capsules inside-out (fresh → processing →
-fries), and build the Sankey chart. See [`notes/research_agenda.md`](notes/research_agenda.md).
+**Run 1 — sourced mass balance + dashboard (2026-07-20):** replaced Run-0
+placeholders with sourced figures (FAOSTAT 2022 production; CIP/FAO utilisation;
+FAO GFLW). Wrote capsules for fresh food, processing, frozen fries, and waste;
+built the interactive [dashboard](index.html) (fork of the Movement template).
+Tier-1 fresh & processing now 🟡; feed/seed/waste/industrial remain 🔴.
+**Run 0** forked the house framework, the mass-balance spine, the 100 % gate, and
+the MUSHT calculator. **Next (Run 2):** country-weighted FBS rebuild to upgrade
+confidence, USDA/Eurostat processing tonnages, a Sankey chart, and the parked
+chain-level fry-cut deep dive. See [`notes/research_agenda.md`](notes/research_agenda.md).
 
 ## License
 

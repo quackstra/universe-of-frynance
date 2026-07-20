@@ -1,32 +1,39 @@
 {
   "big_number": {
-    "production_mt": { "value": 375.0, "unit": "million tonnes fresh weight / yr", "source": "FAOSTAT global potato production ~2022 (374.8 Mt)", "url": "https://www.fao.org/faostat/en/#data/QCL", "confidence": "high" },
+    "production_mt": { "value": 375.0, "unit": "million tonnes fresh weight / yr", "source": "FAOSTAT global potato production 2022 (374.8 Mt); China 95.5 Mt (25.5%), India 56 Mt (15.0%)", "url": "https://www.fao.org/faostat/en/#data/QCL", "confidence": "high" },
     "world_population": { "value": 8.1e9, "source": "UN 2024/2025", "confidence": "high" },
     "per_capita_kg": { "value": 46.3, "derivation": "375e9 kg / 8.1e9 people", "confidence": "high" }
   },
-  "density_g_per_cm3": { "value": 1.08, "source": "raw potato specific gravity ~1.05-1.09 (potatoes sink)", "confidence": "medium" },
+  "density_g_per_cm3": { "value": 1.08, "source": "raw potato specific gravity ~1.05-1.09 (potatoes sink in water)", "confidence": "medium" },
   "last_updated": "2026-07-20",
+  "run": 1,
 
   "tier1_fates": [
-    { "slug": "fresh_food",   "name": "Fresh / table food",      "share_pct": 44, "confidence": "low", "source": "FAO FBS utilisation accounts (placeholder)" },
-    { "slug": "processing",   "name": "Processing (food)",       "share_pct": 20, "confidence": "low", "source": "USDA ERS / Eurostat (placeholder)" },
-    { "slug": "feed",         "name": "Animal feed",             "share_pct": 11, "confidence": "low", "source": "FAO FBS (placeholder)" },
-    { "slug": "seed",         "name": "Seed (replanting)",       "share_pct": 9,  "confidence": "low", "source": "FAO FBS (placeholder)" },
-    { "slug": "waste_loss",   "name": "Waste & loss (accounted)","share_pct": 10, "confidence": "low", "source": "FAO FBS losses line (placeholder)" },
-    { "slug": "industrial",   "name": "Industrial (non-food)",   "share_pct": 6,  "confidence": "low", "source": "starch industry est. (placeholder)" }
+    { "slug": "fresh_food",   "name": "Fresh / table food",       "share_pct": 52, "confidence": "medium", "source": "CIP: fresh consumption ~2/3 of harvest; total food (fresh+processed) ~2/3, of which fresh is the bulk", "url": "https://cipotato.org/potato/potato-facts-and-figures/" },
+    { "slug": "processing",   "name": "Processing (food)",        "share_pct": 14, "confidence": "medium", "source": "FAO: processing 10% of production in 2013 and rising; China ~15%, India ~7%, NL/US 55-60%; global weighted ~14%", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12111199/" },
+    { "slug": "feed",         "name": "Animal feed",              "share_pct": 12, "confidence": "low",    "source": "FAO FBS utilisation accounts; large share of crop used as feed (culls/surplus)", "url": "https://www.fao.org/faostat/en/#data/FBS" },
+    { "slug": "seed",         "name": "Seed (replanting)",        "share_pct": 9,  "confidence": "low",    "source": "FAO FBS; potatoes have a high seed rate (tubers held back for planting)", "url": "https://www.fao.org/faostat/en/#data/FBS" },
+    { "slug": "waste_loss",   "name": "Waste & loss (accounted)", "share_pct": 8,  "confidence": "low",    "source": "FAO FBS 'losses' line (post-harvest accounted losses; distinct from full-chain FLW overlay)", "url": "https://www.fao.org/faostat/en/#data/FBS" },
+    { "slug": "industrial",   "name": "Industrial (non-food)",    "share_pct": 5,  "confidence": "low",    "source": "native/modified starch, alcohol (vodka/aquavit), bioplastics; larger in developed producers", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12111199/" }
   ],
 
   "tier2_processing": [
-    { "slug": "frozen",      "name": "Frozen (fries/wedges/tots)", "share_of_processing_pct": 50, "confidence": "low", "source": "Lamb Weston / McCain / Simplot (placeholder)" },
-    { "slug": "crisps",      "name": "Crisps / chips",             "share_of_processing_pct": 22, "confidence": "low", "source": "snack industry (placeholder)" },
-    { "slug": "dehydrated",  "name": "Dehydrated (flakes -> mash)","share_of_processing_pct": 15, "confidence": "low", "source": "USDA ERS (placeholder)" },
-    { "slug": "canned_other","name": "Canned / other",            "share_of_processing_pct": 13, "confidence": "low", "source": "national food data (placeholder)" }
+    { "slug": "frozen",      "name": "Frozen (fries/wedges/tots)", "share_of_processing_pct": 50, "confidence": "low", "source": "frozen (fries-led) is the largest processed potato category globally; big-three McCain/Lamb Weston/Simplot", "url": "https://www.mdpi.com/2304-8158/14/10/1758" },
+    { "slug": "crisps",      "name": "Crisps / chips",             "share_of_processing_pct": 24, "confidence": "low", "source": "second-largest processed category (snack)", "url": "https://www.mdpi.com/2304-8158/14/10/1758" },
+    { "slug": "dehydrated",  "name": "Dehydrated (flakes -> mash)","share_of_processing_pct": 14, "confidence": "low", "source": "flakes/granules for instant mash + ingredients", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12111199/" },
+    { "slug": "canned_other","name": "Canned / other",            "share_of_processing_pct": 12, "confidence": "low", "source": "canned/refrigerated/salad + residual", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12111199/" }
   ],
 
-  "fries_within_frozen_pct": { "value": 85, "source": "fries dominate frozen; rest wedges/tots/hash (placeholder)", "confidence": "low" },
+  "fries_within_frozen_pct": { "value": 85, "source": "fries dominate frozen potato products; remainder wedges/tots/hash browns", "confidence": "low" },
 
   "food_loss_waste_overlay": {
-    "note": "Cross-cutting overlay along field->consumer chain. NOT summed into tier1_fates (would double-count). Reported as the Conscience Number.",
-    "chain_loss_pct": { "value": 33, "source": "roots & tubers among highest FLW crops; ~20-45% depending on stage/region (placeholder)", "confidence": "low" }
-  }
+    "note": "Cross-cutting overlay along field->consumer chain. NOT summed into tier1_fates (would double-count with the FBS 'losses' line). Reported as the Conscience Number.",
+    "chain_loss_pct": { "value": 45, "source": "Roots & tubers have the highest FLW of any commodity group (>25%); regional range 33% (N.Africa/W&C Asia) to 60% (N.America/Oceania). Potato harvest often 'reduced by half from field to fork'.", "url": "https://www.tabledebates.org/research-library/waste-potato-supply-chain-potato-harvest-reduced-half-field-fork", "confidence": "medium" },
+    "range_pct": { "low": 25, "high": 60 }
+  },
+
+  "top_producers": [
+    { "country": "China", "mt": 95.5, "share_pct": 25.5 },
+    { "country": "India", "mt": 56.0, "share_pct": 15.0 }
+  ]
 }

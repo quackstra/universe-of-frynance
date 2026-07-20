@@ -32,11 +32,12 @@ length  = volume ÷ area       = 6.17 × 10¹⁴ cm
 - **20.6** round-trips to the Sun · **16,000** one-way trips to the Moon.
 - A photon needs **5.7 hours** to travel its length.
 
-### Real MUSHT ≈ **0.33 billion miles**
+### Real MUSHT ≈ **0.23 billion miles**
 
-Only the ~**8.5 %** of production that actually becomes fries (Processing 20 % ×
-Frozen 50 % × fries-within-frozen 85 %). Still **3.5 AU** — out past the asteroid
-belt's inner edge — and **13,000×** around the equator.
+Only the ~**5.9 %** of production that actually becomes fries (Processing 14 % ×
+Frozen 50 % × fries-within-frozen 85 % ≈ 22.3 Mt). Still **2.5 AU** — out past the
+asteroid belt — and **9,000×** around the equator. Put differently: **only about
+1 potato in 17 becomes a fry.**
 
 ### The gap is the story
 
@@ -48,10 +49,10 @@ cultural imagination but are a thin slice of what Earth grows.
 
 | Input | Value | Confidence |
 |-------|-------|------------|
-| Production | 375 Mt/yr | 🟢 FAOSTAT |
+| Production | 375 Mt/yr | 🟢 FAOSTAT 2022 |
 | Potato density | 1.08 g/cm³ | 🟡 raw specific gravity 1.05–1.09 |
 | Fry cut | 0.75 cm square (≈ classic 3/8″) | 🟢 definitional |
-| Fries fraction of production | 8.5 % | 🔴 Run-0 placeholder |
+| Fries fraction of production | 5.9 % | 🔴 derived (Proc 14% × Frozen 50% × 85%) |
 
 Reproduce: `python3 tools/musht.py`. Recompute the fate split and the 100 %
 gate: `python3 tools/massbalance.py`.

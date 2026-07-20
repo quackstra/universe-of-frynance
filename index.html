@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universe of Frynance — What happens to every potato on Earth?</title>
+<meta name="description" content="Mapping the fate of the world's ~375 million tonnes of potatoes. The Big Number, the potato mass balance, and MUSHT — 3.84 billion miles of french fry, a single line past Pluto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#14100a;--card:#1e1810;--card-border:#332a1c;
+  --fresh:#E8B84B;--proc:#F58518;--feed:#A0703C;--seed:#8BA43C;--waste:#D64545;--ind:#7C8B9E;
+  --accent:#F0A830;--gold:#E8B84B;--green:#10b981;--amber:#f59e0b;--red:#ef4444;
+  --text:#fbf7ef;--muted:#b7a888;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}.muted{color:var(--muted)}
+section{padding:76px 0;opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
+section.visible{opacity:1;transform:none}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:28px}
+h2{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-.02em}
+.section-subtitle{color:var(--muted);font-size:1.05rem;margin-bottom:36px;max-width:720px}
+/* hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;overflow:hidden;opacity:1!important;transform:none!important}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(ellipse at 50% 30%,rgba(240,168,48,.10),transparent 60%),radial-gradient(ellipse at 80% 70%,rgba(160,112,60,.08),transparent 50%);
+  pointer-events:none;animation:glow 12s ease-in-out infinite alternate}
+@keyframes glow{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-3%,2%) scale(1.05)}}
+.hero-badge{display:inline-flex;gap:8px;align-items:center;background:rgba(240,168,48,.12);border:1px solid rgba(240,168,48,.28);border-radius:999px;padding:6px 18px;font-size:.85rem;color:var(--accent);margin-bottom:26px}
+.hero h1{font-size:clamp(3rem,7vw,5.3rem);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+.hero .tagline{font-size:clamp(1.05rem,2.2vw,1.35rem);color:var(--muted);margin-bottom:52px}
+.hero-numbers{display:flex;flex-wrap:wrap;gap:48px;justify-content:center}
+.hero-stat .big-number{font-family:var(--mono);font-size:clamp(2.4rem,5.2vw,3.8rem);font-weight:700;line-height:1.1;margin-bottom:4px}
+.big-number.prod{color:var(--gold)}.big-number.musht{color:var(--accent)}.big-number.waste{color:var(--waste)}
+.hero-stat .unit{font-size:clamp(.95rem,2vw,1.2rem);color:var(--muted);font-family:var(--mono)}
+.hero-stat .sub{font-size:.88rem;color:var(--muted);margin-top:4px;max-width:230px}
+.hero-explain{max-width:660px;margin-top:44px}
+.hero-explain .label{font-weight:700;color:var(--accent);font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.hero-explain p{color:var(--muted);font-size:.95rem;line-height:1.7}
+.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);animation:bounce 2s infinite;color:var(--muted);font-size:1.4rem}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);opacity:.5}50%{transform:translateX(-50%) translateY(10px);opacity:1}}
+/* table */
+.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--card-border)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+thead th{background:rgba(255,255,255,.04);padding:14px 16px;text-align:left;font-weight:600;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+tbody tr{border-top:1px solid var(--card-border)}tbody tr:hover{background:rgba(255,255,255,.03)}
+tbody td{padding:12px 16px;white-space:nowrap}
+.td-name{font-weight:600}.td-number{font-family:var(--mono);font-weight:500}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:middle}
+.conf{font-family:var(--mono);font-size:.78rem;font-weight:600;padding:2px 8px;border-radius:4px}
+.conf-high{background:rgba(16,185,129,.15);color:var(--green)}
+.conf-mid{background:rgba(245,158,11,.15);color:var(--amber)}
+.conf-low{background:rgba(239,68,68,.15);color:var(--red)}
+.bar-cell{position:relative;min-width:120px}
+.bar-fill{position:absolute;left:0;top:50%;transform:translateY(-50%);height:8px;border-radius:4px;opacity:.4}
+/* charts */
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.chart-card{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:28px}
+.chart-card h3{font-size:1.05rem;font-weight:700;margin-bottom:18px}
+.chart-canvas-wrap{position:relative;width:100%;height:320px}
+/* deep dive */
+.dd{background:linear-gradient(135deg,rgba(240,168,48,.09),rgba(160,112,60,.07));border:1px solid rgba(240,168,48,.25);border-radius:18px;padding:36px;position:relative;overflow:hidden}
+.dd::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--proc))}
+.dd-badge{display:inline-block;background:rgba(240,168,48,.18);color:var(--accent);font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:6px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em}
+.dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:20px;align-items:center}
+.dd-stat{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--card-border);font-size:.92rem}
+.dd-stat:last-child{border-bottom:none}.dd-stat .label{color:var(--muted)}.dd-stat .value{font-family:var(--mono);font-weight:600}
+.dd-kicker{font-size:1.05rem;line-height:1.6;margin:16px 0 8px;color:var(--text)}
+.dd-kicker b{color:var(--accent)}
+/* insights */
+.insights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.insight-card{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:22px;display:flex;gap:14px;align-items:flex-start;transition:border-color .3s,transform .3s}
+.insight-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.insight-icon{font-size:1.5rem;flex-shrink:0;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:10px;background:rgba(240,168,48,.12)}
+.insight-card p{font-size:.94rem;font-weight:500;line-height:1.5}
+.insight-card p b{color:var(--accent)}
+/* footer + nav */
+footer{border-top:1px solid var(--card-border);padding:44px 0;text-align:center;color:var(--muted);font-size:.85rem;line-height:2}
+footer a{color:var(--gold);text-decoration:none}footer a:hover{text-decoration:underline}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(20,16,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--card-border);padding:0 24px;transform:translateY(-100%);transition:transform .3s}
+nav.visible{transform:none}
+nav .inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+nav .brand{font-weight:800}nav .nav-links{display:flex;gap:22px;list-style:none}
+nav .nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500}
+nav .nav-links a:hover{color:var(--text)}
+@media(max-width:768px){.chart-grid{grid-template-columns:1fr}.dd-grid{grid-template-columns:1fr}.hero-numbers{flex-direction:column;gap:30px}h2{font-size:1.6rem}nav .nav-links{display:none}}
+::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#4a3d28;border-radius:4px}
+</style>
+</head>
+<body>
+
+<nav id="mainNav"><div class="inner">
+  <div class="brand">🥔 Universe of Frynance</div>
+  <ul class="nav-links">
+    <li><a href="#leaderboard">Fates</a></li>
+    <li><a href="#charts">Charts</a></li>
+    <li><a href="#musht">MUSHT</a></li>
+    <li><a href="#insights">Insights</a></li>
+  </ul>
+</div></nav>
+
+<!-- HERO -->
+<section class="hero visible" id="hero">
+  <div class="container" style="display:flex;flex-direction:column;align-items:center">
+    <div class="hero-badge">Open Research Project · Run 1 · 🥔🍟</div>
+    <h1>Universe of Frynance</h1>
+    <p class="tagline">What happens to every potato on Earth?</p>
+    <div class="hero-numbers">
+      <div class="hero-stat">
+        <div class="big-number prod mono">~<span id="cProd">0</span></div>
+        <div class="unit">Mt potato / yr</div>
+        <div class="sub">global production — the Big Number</div>
+      </div>
+      <div class="hero-stat">
+        <div class="big-number musht mono">~<span id="cMusht">0</span>B</div>
+        <div class="unit">miles of fry</div>
+        <div class="sub">MUSHT — one 0.75 cm fry, a line past Pluto</div>
+      </div>
+      <div class="hero-stat">
+        <div class="big-number waste mono">~<span id="cWaste">0</span>%</div>
+        <div class="unit">wasted</div>
+        <div class="sub">lost field→fork — the Conscience Number</div>
+      </div>
+    </div>
+    <div class="hero-explain">
+      <div class="label">What is MUSHT?</div>
+      <p><b>Make Underutilized Spuds Have Taste.</b> If 100 % of every potato Earth grows in a year were extruded into one perfectly straight french fry, 0.75 cm × 0.75 cm square, it would run <b>~3.84 billion miles</b> — past Pluto's average orbit (41 AU), 154,000× around the equator, a line a photon needs 5.7 hours to cross. Only ~6 % of the crop actually becomes fries, so the <em>real</em> fry line is ~0.23 billion miles — the gap is the story.</p>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">&#8595;</div>
+</section>
+
+<!-- LEADERBOARD -->
+<section id="leaderboard"><div class="container">
+  <h2>The Potato Mass Balance</h2>
+  <p class="section-subtitle">Every one of the world's ~375 Mt of potatoes, sorted by fate. The six Tier-1 fates partition 100 % of production — that is the project's integrity gate. (Food loss &amp; waste is a cross-cutting overlay, shown separately below, never summed into this total.)</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>Fate</th><th>Mt / yr</th><th>Share</th><th>Confidence</th></tr></thead>
+    <tbody id="lbBody"></tbody>
+  </table></div>
+  <p class="muted" style="font-size:.85rem;margin-top:14px">Overlay — <b style="color:var(--waste)">Food Loss &amp; Waste ≈ 45 %</b> (~169 Mt, range 25–60 %): roots &amp; tubers have the highest loss rate of any crop group. Not part of the 100 % above.</p>
+</div></section>
+
+<!-- CHARTS -->
+<section id="charts"><div class="container">
+  <h2>Visual Breakdown</h2>
+  <p class="section-subtitle">Where the harvest goes, and what the ~14 % that gets processed becomes. Frozen — led by fries — is the largest processed category.</p>
+  <div class="chart-grid">
+    <div class="chart-card"><h3>Fate of the Harvest (share of 375 Mt)</h3><div class="chart-canvas-wrap"><canvas id="fateDoughnut"></canvas></div></div>
+    <div class="chart-card"><h3>Processing Split (52.5 Mt processed)</h3><div class="chart-canvas-wrap"><canvas id="procBar"></canvas></div></div>
+  </div>
+</div></section>
+
+<!-- MUSHT DEEP DIVE -->
+<section id="musht"><div class="container">
+  <h2>MUSHT — Make Underutilized Spuds Have Taste</h2>
+  <p class="section-subtitle">The hero number: miles of french fry if the whole crop went straight to the fryer. Computed on raw-potato volume (ρ ≈ 1.08 g/cm³), 0.75 cm square cut.</p>
+  <div class="dd">
+    <span class="dd-badge">The Fun Number</span>
+    <p class="dd-kicker">Extrude all <b>375 Mt</b> of potato into one perfectly straight <b>0.75 cm</b> fry and it stretches <b>3.84 billion miles</b> — <b>41 AU, past Pluto</b>. But only <b>~22.3 Mt</b> (5.9 %) actually becomes fries, so the real fry line is <b>0.23 billion miles</b>. Only about <b>1 potato in 17</b> ends up a fry.</p>
+    <div class="dd-grid">
+      <div>
+        <div class="dd-stat"><span class="label">Idealized MUSHT (100 % of crop)</span><span class="value" style="color:var(--accent)">3.84 B mi</span></div>
+        <div class="dd-stat"><span class="label">Real MUSHT (fries only, 5.9 %)</span><span class="value">0.23 B mi</span></div>
+        <div class="dd-stat"><span class="label">Length (idealized)</span><span class="value">41.3 AU</span></div>
+        <div class="dd-stat"><span class="label">…in context</span><span class="value">past Pluto (~39.5 AU)</span></div>
+        <div class="dd-stat"><span class="label">Times around the equator</span><span class="value">154,000×</span></div>
+        <div class="dd-stat"><span class="label">Light-travel time end-to-end</span><span class="value">5.7 hours</span></div>
+        <div class="dd-stat"><span class="label">Fries potato used</span><span class="value">~22.3 Mt / yr</span></div>
+      </div>
+      <div class="chart-canvas-wrap" style="height:340px"><canvas id="mushtBar"></canvas></div>
+    </div>
+    <p class="dd-kicker" style="margin-top:26px">Reproduce it yourself: <span class="mono" style="color:var(--gold)">python3 tools/musht.py</span>. The mass-balance gate that keeps the fates summing to 100 %: <span class="mono" style="color:var(--gold)">python3 tools/massbalance.py</span>.</p>
+  </div>
+</div></section>
+
+<!-- INSIGHTS -->
+<section id="insights"><div class="container">
+  <h2>Key Insights</h2>
+  <p class="section-subtitle">What the data says about the fate of the world's spuds.</p>
+  <div class="insights-grid" id="insightsGrid"></div>
+</div></section>
+
+<footer><div class="container">
+  <p>Potato mass balance · 6 fates + fries deep dive · Run 1 · 2026-07-20</p>
+  <p><a href="https://github.com/quackstra/universe-of-frynance" target="_blank" rel="noopener">View the full research on GitHub</a> &middot; <a href="analysis/aggregate/BIG_NUMBER.md">The Big Number</a> &middot; sister to <a href="https://quackstra.github.io/universe-of-finance">Finance</a> &amp; <a href="https://quackstra.github.io/universe-of-movement">Movement</a></p>
+  <p style="margin-top:14px">&copy; 2026 Universe of Frynance &middot; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
+</div></footer>
+
+<script>
+const FATES=[
+  {name:"Fresh / table food",mt:195.0,share:52.0,conf:"mid",color:"#E8B84B"},
+  {name:"Processing (food)",mt:52.5,share:14.0,conf:"mid",color:"#F58518"},
+  {name:"Animal feed",mt:45.0,share:12.0,conf:"low",color:"#A0703C"},
+  {name:"Seed (replanting)",mt:33.8,share:9.0,conf:"low",color:"#8BA43C"},
+  {name:"Waste & loss (accounted)",mt:30.0,share:8.0,conf:"low",color:"#D64545"},
+  {name:"Industrial (non-food)",mt:18.8,share:5.0,conf:"low",color:"#7C8B9E"},
+];
+const PROC=[
+  {t:"Frozen (fries/wedges/tots)",mt:26.2,c:"#F58518"},
+  {t:"Crisps / chips",mt:12.6,c:"#E8B84B"},
+  {t:"Dehydrated (→ mash)",mt:7.3,c:"#A0703C"},
+  {t:"Canned / other",mt:6.3,c:"#7C8B9E"},
+];
+const MUSHT=[{t:"Idealized (100% of crop)",v:3.84,c:"#F0A830"},{t:"Real (fries only, 5.9%)",v:0.23,c:"#A0703C"}];
+const INSIGHTS=[
+  {i:"🍟",t:"<b>Only ~1 potato in 17</b> becomes a fry. Fries loom huge culturally but are just <b>~6%</b> of what Earth grows."},
+  {i:"🥔",t:"<b>Fresh still wins.</b> Despite the QSR image, ~<b>52%</b> of potatoes are sold and cooked whole — processing is only ~14% globally."},
+  {i:"🌏",t:"<b>China + India grow ~40%</b> of the world's potatoes but process only 15% / 7% — that's why the global processed share stays modest."},
+  {i:"🗑️",t:"<b>The bin rivals the plate.</b> ~45% of potatoes are lost field→fork (~169 Mt) — roots & tubers waste more than any crop group."},
+  {i:"🪐",t:"<b>MUSHT reaches past Pluto.</b> All 375 Mt as one 0.75 cm fry = 3.84 billion miles, 41 AU — a photon needs 5.7 hours to cross it."},
+  {i:"⚖️",t:"<b>The 100% gate is sacred.</b> Every fate must reconcile to total production; food-loss is an overlay, never double-counted into it."},
+];
+
+const confClass={high:"conf-high",mid:"conf-mid",low:"conf-low"};
+const confLabel={high:"🟢 High",mid:"🟡 Medium",low:"🔴 Low"};
+const maxMt=Math.max(...FATES.map(m=>m.mt));
+
+document.getElementById("lbBody").innerHTML=FATES.map((m,i)=>`
+  <tr>
+    <td class="td-number">${i+1}</td>
+    <td class="td-name"><span class="dot" style="background:${m.color}"></span>${m.name}</td>
+    <td class="bar-cell"><span class="bar-fill" style="width:${Math.max(2,m.mt/maxMt*100)}%;background:${m.color}"></span><span class="td-number" style="position:relative">${m.mt.toFixed(1)}</span></td>
+    <td class="td-number">${m.share.toFixed(1)}%</td>
+    <td><span class="conf ${confClass[m.conf]}">${confLabel[m.conf]}</span></td>
+  </tr>`).join("");
+
+document.getElementById("insightsGrid").innerHTML=INSIGHTS.map(x=>`
+  <div class="insight-card"><div class="insight-icon">${x.i}</div><p>${x.t}</p></div>`).join("");
+
+function animate(id,target,dec,dur=1400){
+  const el=document.getElementById(id);let start=null;
+  function step(ts){if(!start)start=ts;const p=Math.min((ts-start)/dur,1);
+    const v=target*(1-Math.pow(1-p,3));el.textContent=v.toFixed(dec);
+    if(p<1)requestAnimationFrame(step)}
+  requestAnimationFrame(step);
+}
+Chart.defaults.color="#b7a888";Chart.defaults.font.family="'Inter',sans-serif";
+function makeCharts(){
+  new Chart(document.getElementById("fateDoughnut"),{type:"doughnut",
+    data:{labels:FATES.map(m=>m.name),datasets:[{data:FATES.map(m=>m.mt),backgroundColor:FATES.map(m=>m.color),borderColor:"#14100a",borderWidth:2}]},
+    options:{plugins:{legend:{position:"bottom",labels:{padding:10,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.parsed} Mt`}}},cutout:"56%",maintainAspectRatio:false}});
+  new Chart(document.getElementById("procBar"),{type:"bar",
+    data:{labels:PROC.map(d=>d.t),datasets:[{label:"Mt / yr",data:PROC.map(d=>d.mt),backgroundColor:PROC.map(d=>d.c)}]},
+    options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{title:{display:true,text:"Mt of potato / yr"},grid:{color:"#332a1c"}},y:{grid:{display:false}}},maintainAspectRatio:false}});
+  new Chart(document.getElementById("mushtBar"),{type:"bar",
+    data:{labels:MUSHT.map(d=>d.t),datasets:[{label:"Billion miles of fry",data:MUSHT.map(d=>d.v),backgroundColor:MUSHT.map(d=>d.c)}]},
+    options:{indexAxis:"y",plugins:{legend:{display:false},title:{display:true,text:"MUSHT — billions of miles of fry",color:"#fbf7ef"}},
+      scales:{x:{title:{display:true,text:"billion miles"},grid:{color:"#332a1c"}},y:{grid:{display:false}}},maintainAspectRatio:false}});
+}
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.12});
+document.querySelectorAll("section").forEach(s=>io.observe(s));
+window.addEventListener("scroll",()=>{document.getElementById("mainNav").classList.toggle("visible",window.scrollY>600)});
+window.addEventListener("load",()=>{
+  animate("cProd",375,0);animate("cMusht",3.84,2);animate("cWaste",45,0);
+  makeCharts();
+});
+</script>
+</body>
+</html>
