@@ -1,0 +1,57 @@
+# Universe of Frynance — research backlog (inside-out priority).
+# The Elves work this top-down. Priority = mass × sourcing-confidence-gap.
+
+backlog:
+  - id: FRY-001
+    fate: production
+    task: Lock the Big Number — FAOSTAT latest-year global production + 10yr timeseries
+    priority: 1
+    status: todo
+
+  - id: FRY-002
+    fate: fresh_food
+    task: Fresh/table share from FAO FBS; split home vs foodservice
+    priority: 2
+    status: todo
+
+  - id: FRY-003
+    fate: processing
+    task: Processing share + Tier-2 split (frozen/crisps/dehydrated/canned) from USDA ERS + Eurostat
+    priority: 3
+    status: todo
+
+  - id: FRY-004
+    fate: processing.frozen.fries
+    task: Total fries tonnage + straight/crinkle/curly/wedge cut mix (cut only, NOT by chain — Run 1)
+    priority: 4
+    status: todo
+
+  - id: FRY-005
+    fate: waste_loss
+    task: FLW overlay for roots & tubers by chain stage; reconcile vs FBS 'losses' line
+    priority: 5
+    status: todo
+
+  - id: FRY-006
+    fate: feed
+    task: Feed share (culls/surplus) from FAO FBS
+    priority: 6
+    status: todo
+
+  - id: FRY-007
+    fate: seed
+    task: Seed share from FAO FBS + seed-potato bodies
+    priority: 7
+    status: todo
+
+  - id: FRY-008
+    fate: industrial
+    task: Industrial starch + alcohol + bioplastic (non-food) tonnage
+    priority: 8
+    status: todo
+
+  - id: FRY-R2-001
+    fate: processing.frozen.fries.by_channel
+    task: "[RUN 2 STRETCH] curly vs crinkle vs straight by QSR chain — needs menu + processor-mix data"
+    priority: 99
+    status: parked

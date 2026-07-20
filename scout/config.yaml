@@ -1,0 +1,41 @@
+# Universe of Frynance — Scout config
+# Gold-standard data sources for the potato mass balance, ranked by tier.
+
+sources:
+  production:            # the Big Number
+    - name: FAOSTAT (QCL production)
+      url: https://www.fao.org/faostat/en/#data/QCL
+      confidence: high
+    - name: FAO Food Balance Sheets (utilisation accounts)
+      url: https://www.fao.org/faostat/en/#data/FBS
+      confidence: high
+
+  utilisation_and_processing:
+    - name: USDA ERS — Potatoes / Vegetables & Pulses Yearbook
+      url: https://www.ers.usda.gov/topics/crops/potatoes/
+      confidence: high
+    - name: Eurostat — potato production & processing
+      url: https://ec.europa.eu/eurostat
+      confidence: high
+    - name: CIP — International Potato Center
+      url: https://cipotato.org/
+      confidence: medium
+    - name: Potatoes USA
+      url: https://www.potatoesusa.com/
+      confidence: medium
+
+  processors:            # frozen fries / big three
+    - name: Lamb Weston annual report / investor deck
+      confidence: medium
+    - name: McCain Foods (private — trade press)
+      confidence: low
+    - name: J.R. Simplot (private — trade press)
+      confidence: low
+
+  waste_overlay:
+    - name: FAO — Food Loss & Waste (roots & tubers)
+      url: https://www.fao.org/platform-food-loss-waste/en
+      confidence: medium
+
+# Insider lens: Ferg's 11yr at Euromonitor — packaged/frozen processed-food
+# category intelligence is directly relevant to Tier-2 processing shares.
