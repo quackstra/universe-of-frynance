@@ -99,6 +99,13 @@ python3 tools/musht.py         # recompute MUSHT
 
 ## Status
 
+**Run 4 — grounding pass (2026-07-20):** put sourced numbers on the Run-3
+scaffolds — processor corroboration (**McCain ~1 in 4 fries worldwide**; ~30 Mt
+raw ≈ 15 Mt finished), the **chain-vs-independent** foodservice split
+(independents ~422k units / ~55 % of fry volume — now 🟡), and a **both-hemisphere
+global TPS** curve (holiday swing 24 % NH → ~10 % global; `tools/tps.py` prints
+both). Dashboard gains the global TPS line and a tier-split bar.
+
 **Run 3 — TPS, restaurant tiers & fry-companions tracker (2026-07-20):** added
 **[TPS — Taters Per Second](analysis/aggregate/TPS.md)** (~79,000/s annual +
 month-by-month, day-weighted-normalised, Nov peak / Jan trough; 🥔 > global

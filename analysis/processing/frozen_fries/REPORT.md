@@ -33,9 +33,25 @@ it drives **Real MUSHT ≈ 0.30 billion miles** (vs. the idealized 3.84 billion 
 *all* spuds were fries). The ~3.5-billion-mile gap is the headline: **only ~1
 potato in 13 becomes a fry.**
 
+## Run-4: processor corroboration & finished-fry weight
+
+The **big three** corroborate the ~30 Mt raw scale:
+
+| Rank | Processor | Signal |
+|------|-----------|--------|
+| 1 | **McCain Foods** | makes **~1 in 4 fries worldwide**; ~$9 B sales; world's largest |
+| 2 | **Lamb Weston** | world #2; largest in North America (~$6 B+) |
+| 3 | **J.R. Simplot** | ~3 Mt potatoes/yr; key McDonald's supplier |
+
+**Raw vs finished:** the 29.8 Mt is **raw potato** (the MUSHT basis). At a ~50 %
+finished-weight yield (peel/trim/moisture), that is **~14.9 Mt of finished
+fries**. McCain's "1 in 4" of ~15 Mt finished ⇒ a few Mt of finished product for
+McCain alone — the right order of magnitude, so raw ≈ 30 Mt holds up.
+
 ## Confidence & gaps
-🟡 on the tonnage (now USDA-anchored); 🔴 on the cut mix. Run-3: triangulate
-against McCain/Lamb Weston/Simplot reported volumes + frozen-fry trade data.
+🟡 on the raw tonnage (USDA-anchored + processor-corroborated); 🔴 on the cut mix.
+Run-5: exact processor tonnages from investor filings + frozen-fry trade flows to
+push toward 🟢.
 
 [maj]: https://www.coherentmarketinsights.com/blog/insights/major-players-french-fries-industry-1738
 [opr]: https://www.openpr.com/news/4453055/global-frozen-french-fries-market-led-by-europe-as-mccain-foods

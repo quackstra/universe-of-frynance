@@ -1,43 +1,41 @@
 # Last Session — Universe of Frynance
 
-## Run 3 — TPS, restaurant tiers & fry-companions tracker (2026-07-20)
+## Run 4 — grounding pass (2026-07-20)
 
-Live at quackstra.github.io/universe-of-frynance.
+Put sourced numbers on the Run-3 scaffolds. Live at
+quackstra.github.io/universe-of-frynance.
 
-### New metric: TPS — Taters Per Second (`tools/tps.py`, `analysis/aggregate/TPS.md`)
-- **Annual TPS ≈ 79,220/s** (375 Mt ÷ 150 g avg potato ÷ 31,557,600 s = 2.5 T
-  taters/yr). Easter egg: ~1.07× the Universe of Finance Big Number (~73,750
-  transactions/s) — 🥔 > 💸.
-- **Monthly TPS**: NH consumption-seasonality index, normalised by its
-  DAY-WEIGHTED mean so the 12 months reconcile exactly to annual (verified ✅).
-  Peak Nov 89,216 (Thanksgiving), trough Jan 69,821 (post-holiday dip).
-- Avg potato weight 150 g is 🟡 (US medium russet ~170-180 g; sensitivity: 130 g
-  → 91k TPS, 180 g → 66k TPS).
+### Processor corroboration (fries tonnage 🟡, better corroborated)
+- **McCain ~1 in 4 fries worldwide** (~$9B, world #1); Lamb Weston #2 (NA leader);
+  Simplot ~3 Mt potatoes/yr. `fry_processors` block + frozen_fries capsule table.
+- Raw vs finished: 29.8 Mt **raw** (MUSHT basis) ≈ **14.9 Mt finished** at ~50 %
+  yield. McCain's "1 in 4" of ~15 Mt finished is the right order of magnitude, so
+  ~30 Mt raw holds.
 
-### Restaurant-tier fry mapping (expanded fry-cuts deep dive)
-QSR / fast-casual / casual-dining / fine-dining / **independent (non-chain)**.
-Key finding: independents (~half of units) are the largest, most varied
-fry-volume tier — chains are the short head anchoring signatures (waffle=CFA,
-curly=Arby's, crinkle=Shake Shack/Culver's, steak fries=Red Robin, hand-cut=Five
-Guys); the long tail fills the rest. Data in `restaurant_tiers` (🔴).
+### Chain vs independent foodservice split (now 🟡)
+- US: ~422,001 independent vs ~263,000 chain units (2024); independents ~67 % of
+  sales. Chains over-index on fries (~45 % of fry volume) but the **independent
+  tail still carries ~55 %**. `restaurant_fry_volume` block; capsule table +
+  dashboard stacked bar. (Retail/home fries are a separate slice.)
 
-### Fry-companions tracker (`analysis/deep-dives/fry-companions/`)
-Share of fry-accompanied orders: burger 38 · chicken 24 · sandwich 12 · fish 8 ·
-hot dog 7 · wings 5 · steak 3 · solo 3 %. Ubiquitous: soda + ketchup (regional
-dips: mayo/vinegar/poutine). v1 estimates 🔴 — Run-4 to ground with POS/menu-mix.
+### Both-hemisphere GLOBAL TPS (new second curve)
+- `global_index = 1 + 0.4 × (NH index − 1)` — damped for SH offset + weak-
+  seasonality populations. Holiday swing **24 % NH → ~10 % global**. `tools/tps.py`
+  prints NH and GLOBAL side by side (both reconcile ✅). Dashboard TPS chart now
+  has both lines.
 
-### Dashboard
-Added a **TPS section** (annual stat grid + monthly line chart with Nov peak
-marker + annual-average dashed line), a **companions bar**, a **restaurant-tier**
-note, a 4th hero stat (TPS), nav link, and 3 new insight cards. Run 3 badge/footer.
+### Data blocks added
+`fries_finished`, `fry_processors`, `restaurant_fry_volume`, and
+`tps.monthly_index.global_values`. Mass-balance gate unchanged (PASS).
 
-## Data structures added to global_massbalance.json
-`tps` (avg_potato_weight_g, seconds_per_year, monthly_index+drivers),
-`restaurant_tiers`, `fry_companions`. Mass-balance gate still PASS (unchanged
-Tier-1).
+### Gotcha fixed this run
+An Edit anchored on `food_loss_waste_overlay` created an orphan key (assumed it
+followed `fries_within_frozen_pct`; it didn't). Caught by the JSON parse check
+before commit. Lesson: verify the anchor's neighbour, don't assume ordering.
 
-## Next (Run 4)
+## Next (Run 5)
+- Exact processor tonnages from McCain/Lamb Weston/Simplot filings + frozen-fry
+  trade flows → push fries toward 🟢.
 - Ground fry-companion attach with POS/menu-mix panels; split by tier.
-- Quantify per-tier fry volume (independents vs chains) for a true global cut mix.
-- Processor-reported fry volumes (McCain/Lamb Weston/Simplot) → fries toward 🟢.
-- Global (both-hemisphere) TPS seasonality vs the current NH-weighted index.
+- Hemisphere-resolved TPS damping from real consumption data (replace the 0.4).
+- Feed / seed / industrial still 🔴 — direct FAO FBS pull.

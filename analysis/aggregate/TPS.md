@@ -46,6 +46,24 @@ and US retailers move ~214 M lb of spuds in the run-up. **Trough: January
 (~69,800 TPS)** — the post-holiday diet dip. A secondary summer bump (Jul) tracks
 the QSR fry season.
 
+### Run-4: Northern-Hemisphere vs both-hemisphere GLOBAL
+
+The table above is **NH-weighted**. A true **global** index damps it, because the
+Southern Hemisphere's seasons are offset by six months and most of the world's
+potato eaters (India, China, the tropics) have weak seasonality:
+
+> **global index = 1 + 0.4 × (NH index − 1)**
+
+| View | Peak | Trough | Peak-to-trough swing |
+|------|------|--------|----------------------|
+| NH-weighted | Nov 89,216 | Jan 69,821 | **24 % of annual** |
+| Both-hemisphere global | Nov 83,269 | Jan ~76,300 | **~10 % of annual** |
+
+**The holiday spike is largely a Northern/Western phenomenon** — measured across
+the whole planet, Taters-Per-Second is far flatter (a ~10 % swing, not 24 %). The
+dashboard plots both curves. 🔴 on the exact damping factor; a future run would
+build it from hemisphere-resolved consumption data.
+
 ## Assumptions & confidence
 
 | Input | Value | Confidence |

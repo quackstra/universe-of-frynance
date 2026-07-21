@@ -55,24 +55,32 @@ def main() -> None:
           f"{ratio:.2f}x the ~{UOF_TPS/1e3:.1f}k transactions/second")
     print(f"          of the whole global financial system (Universe of Finance).")
 
-    # Monthly — normalise index by its day-weighted mean so rates reconcile.
-    idx = tps["monthly_index"]["values"]
-    dw_mean = sum(idx[m] * DAYS[m] for m in MONTHS) / sum(DAYS.values())
-    print("\n  Monthly TPS (day-weighted mean of index normalised to annual):")
-    print(f"  {'month':<6}{'index':>7}{'TPS':>12}   {'vs annual':>10}")
-    rows = []
-    for m in MONTHS:
-        month_tps = annual_tps * idx[m] / dw_mean
-        rows.append((m, idx[m], month_tps))
-        bar = "#" * round((idx[m] / dw_mean) * 20)
-        print(f"  {m:<6}{idx[m]:>7.2f}{month_tps:>12,.0f}   {(idx[m]/dw_mean-1)*100:>+9.1f}%  {bar}")
+    # Monthly — normalise each index by its day-weighted mean so rates reconcile.
+    mi = tps["monthly_index"]
+    nh = mi["values"]
+    glob = mi.get("global_values", nh)
 
-    peak = max(rows, key=lambda r: r[2])
-    trough = min(rows, key=lambda r: r[2])
-    # sanity: day-weighted average of monthly TPS should equal annual TPS
-    check = sum(t * DAYS[m] for m, _, t in rows) / sum(DAYS.values())
-    print(f"\n  Peak   : {peak[0]} @ {peak[2]:,.0f} TPS (holiday mash)")
-    print(f"  Trough : {trough[0]} @ {trough[2]:,.0f} TPS (post-holiday dip)")
+    def norm(idx):
+        m0 = sum(idx[m] * DAYS[m] for m in MONTHS) / sum(DAYS.values())
+        return {m: annual_tps * idx[m] / m0 for m in MONTHS}, m0
+
+    nh_tps, nh_mean = norm(nh)
+    gl_tps, gl_mean = norm(glob)
+
+    print("\n  Monthly TPS — NH-weighted vs both-hemisphere GLOBAL (Run 4):")
+    print(f"  {'month':<6}{'NH TPS':>11}{'GLOBAL TPS':>13}   {'NH vs avg':>10}")
+    for m in MONTHS:
+        bar = "#" * round((nh[m] / nh_mean) * 18)
+        print(f"  {m:<6}{nh_tps[m]:>11,.0f}{gl_tps[m]:>13,.0f}   {(nh[m]/nh_mean-1)*100:>+9.1f}%  {bar}")
+
+    nh_peak = max(MONTHS, key=lambda m: nh_tps[m]); nh_tr = min(MONTHS, key=lambda m: nh_tps[m])
+    nh_swing = (nh_tps[nh_peak] - nh_tps[nh_tr]) / annual_tps * 100
+    gl_swing = (max(gl_tps.values()) - min(gl_tps.values())) / annual_tps * 100
+    check = sum(nh_tps[m] * DAYS[m] for m in MONTHS) / sum(DAYS.values())
+    print(f"\n  NH   : peak {nh_peak} {nh_tps[nh_peak]:,.0f} / trough {nh_tr} {nh_tps[nh_tr]:,.0f}"
+          f"  (swing {nh_swing:.0f}% of annual)")
+    print(f"  GLOBAL: far flatter — swing only {gl_swing:.0f}% (SH offsets the North; holiday")
+    print(f"          spike is a Northern/Western thing).")
     print(f"  Reconciliation: day-weighted monthly mean = {check:,.0f} TPS "
           f"(annual {annual_tps:,.0f})  {'✅' if abs(check-annual_tps) < 1 else '❌'}\n")
 

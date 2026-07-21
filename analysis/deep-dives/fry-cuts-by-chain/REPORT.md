@@ -55,6 +55,20 @@ anchor the recognisable signature cuts (waffle = Chick-fil-A, curly = Arby's);
 the tail fills in everything else. This mirrors the Universe of Movement
 "long-tail" finding for vehicle models.
 
+### Run-4: putting numbers on the tail (🟡)
+US foodservice is **~422,001 independent** units vs **~263,000 chain** units
+(2024), and independents hold **~67 % of restaurant sales** vs the top-500 chains'
+**~33 %**. Chains over-index on fries (fries are a bigger share of a QSR menu), so
+their **fry-volume** share (~45 %) runs ahead of their sales share — but the
+**independent/non-chain tail still carries the majority (~55 %) of foodservice fry
+volume.** (A further large slice of all fries is **retail** — frozen bags cooked
+at home — outside this foodservice split.)
+
+| Segment | Units | Sales | Fry volume |
+|---------|-------|-------|-----------|
+| Chains (QSR + full-service) | 38 % | 33 % | ~45 % |
+| Independent / non-chain | 62 % | 67 % | ~55 % |
+
 ## Method
 Cut shares are US-foodservice-weighted estimates anchored to (a) the straight-cut
 ~48 % market share, (b) which cut each major chain/tier serves, and (c) chain

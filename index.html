@@ -111,7 +111,7 @@ nav .nav-links a:hover{color:var(--text)}
 <!-- HERO -->
 <section class="hero visible" id="hero">
   <div class="container" style="display:flex;flex-direction:column;align-items:center">
-    <div class="hero-badge">Open Research Project · Run 3 · 🥔🍟</div>
+    <div class="hero-badge">Open Research Project · Run 4 · 🥔🍟</div>
     <h1>Universe of Frynance</h1>
     <p class="tagline">What happens to every potato on Earth?</p>
     <div class="hero-numbers">
@@ -189,6 +189,8 @@ nav .nav-links a:hover{color:var(--text)}
     <div class="chart-canvas-wrap" style="height:320px"><canvas id="cutBar"></canvas></div>
     <p class="dd-kicker" style="margin-top:26px">Reproduce it yourself: <span class="mono" style="color:var(--gold)">python3 tools/musht.py</span>. The mass-balance gate that keeps the fates summing to 100 %: <span class="mono" style="color:var(--gold)">python3 tools/massbalance.py</span>.</p>
     <p class="dd-kicker" style="margin-top:26px"><b>Run 3 — cut by restaurant tier.</b> The chains are the short head; the <b>independent / non-chain tail</b> (~half of restaurant units — diners, chippies, food trucks, street vendors) is the largest, most varied fry-volume tier. Chains anchor the signatures — <b>waffle = Chick-fil-A, curly = Arby's, crinkle = Shake Shack / Culver's, steak fries = Red Robin, hand-cut = Five Guys</b> — the tail fills in everything else.</p>
+    <p class="dd-kicker" style="margin-top:20px"><b>Run 4 — numbers on the tail.</b> US foodservice = <b>~422k independent</b> vs <b>~263k chain</b> units; independents hold <b>~67 % of sales</b>. Chains over-index on fries (~45 % of fry volume), but the <b>independent tail still carries ~55 %</b>. And the global fries scale checks out top-down: <b>McCain alone makes ~1 in 4 fries worldwide</b> (Lamb Weston #2, Simplot ~3 Mt) — corroborating the ~30 Mt raw / ~15 Mt finished stream.</p>
+    <div class="chart-canvas-wrap" style="height:150px;margin-top:10px"><canvas id="tierBar"></canvas></div>
     <div class="insights-grid" style="margin-top:22px">
       <div class="insight-card"><div class="insight-icon">🍔</div><p><b>Fry companions tracker:</b> the fry is the great supporting side. What shares its plate, ranked →</p></div>
     </div>
@@ -215,7 +217,7 @@ nav .nav-links a:hover{color:var(--text)}
       </div>
       <div class="chart-canvas-wrap" style="height:340px"><canvas id="tpsLine"></canvas></div>
     </div>
-    <p class="dd-kicker" style="margin-top:26px"><b>Two views, as asked:</b> a flat <b>annual-average</b> TPS, and a <b>month-by-month</b> TPS built from a Northern-Hemisphere consumption-seasonality index — normalised so the twelve months reconcile exactly to the annual figure. Taters-per-second peaks at the <b>winter holidays</b> and bottoms out in the <b>post-holiday January dip</b>, with a summer QSR-fry bump. Reproduce: <span class="mono" style="color:var(--gold)">python3 tools/tps.py</span>.</p>
+    <p class="dd-kicker" style="margin-top:26px"><b>Two views, as asked:</b> a flat <b>annual-average</b> TPS, and a <b>month-by-month</b> TPS — each normalised so the twelve months reconcile exactly to the annual figure. <b>Run 4 adds a both-hemisphere GLOBAL curve</b> (orange): far flatter than the Northern-Hemisphere line (green), because the Southern Hemisphere's seasons offset the North and most of the world's potato eaters have weak seasonality. The holiday spike (a <b>24 %</b> swing in the NH) shrinks to just <b>~10 %</b> globally — <b>Thanksgiving is a Northern/Western phenomenon.</b> Reproduce: <span class="mono" style="color:var(--gold)">python3 tools/tps.py</span>.</p>
   </div>
 </div></section>
 
@@ -227,7 +229,7 @@ nav .nav-links a:hover{color:var(--text)}
 </div></section>
 
 <footer><div class="container">
-  <p>Potato mass balance · 6 fates · MUSHT · TPS · fry-cuts &amp; companions · Run 3 · 2026-07-20</p>
+  <p>Potato mass balance · 6 fates · MUSHT · TPS (NH + global) · fry-cuts, tiers &amp; companions · Run 4 · 2026-07-20</p>
   <p><a href="https://github.com/quackstra/universe-of-frynance" target="_blank" rel="noopener">View the full research on GitHub</a> &middot; <a href="analysis/aggregate/BIG_NUMBER.md">The Big Number</a> &middot; sister to <a href="https://quackstra.github.io/universe-of-finance">Finance</a> &amp; <a href="https://quackstra.github.io/universe-of-movement">Movement</a></p>
   <p style="margin-top:14px">&copy; 2026 Universe of Frynance &middot; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
 </div></footer>
@@ -263,12 +265,18 @@ const COMPANIONS=[
 ];
 const TPS_MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const TPS_VALS=[69821,72925,75252,76804,78355,80683,82234,81458,78355,79907,89216,85337];
+const TPS_GLOBAL=[76300,77532,78471,79101,78241,78870,80441,80127,78870,79498,83269,81698];
 const TPS_ANNUAL=79220;
+const TIERSPLIT=[
+  {t:"Independent / non-chain",p:55,c:"#8BA43C"},{t:"Chains (QSR + full-service)",p:45,c:"#F58518"},
+];
 const INSIGHTS=[
   {i:"🍟",t:"<b>Only ~1 potato in 13</b> becomes a fry. Fries loom huge culturally but are just <b>~8%</b> of what Earth grows."},
   {i:"🌀",t:"<b>Curly fry ≈ 12 million miles</b> a year — ~26 round-trips to the Moon — and it's <b>almost all Arby's</b>. Waffle (~15 M mi) is Chick-fil-A."},
   {i:"⚡",t:"<b>~79,000 Taters Per Second.</b> Earth grows potatoes faster than the whole world settles financial transactions (~73,750/sec) — 🥔 &gt; 💸."},
   {i:"🦃",t:"<b>Taters-per-second peaks in November</b> (~89k/sec) on Thanksgiving mash, and bottoms out in the January post-holiday dip (~70k/sec)."},
+  {i:"🌍",t:"<b>But globally, TPS is flat.</b> The holiday swing is 24% in the North, only ~10% worldwide — Thanksgiving is a Northern/Western phenomenon."},
+  {i:"🏪",t:"<b>The non-chain tail wins.</b> Independents are ~422k US units and ~55% of foodservice fry volume; the chains you can name are the short head."},
   {i:"🍔",t:"<b>The burger is the fry's soulmate</b> — the #1 companion (~38% of fry orders), ahead of chicken (~24%). The fry is the great supporting side."},
   {i:"🌏",t:"<b>China + India grow ~40%</b> of the world's potatoes but process only 15% / 7% — that's why the global processed share is only ~17%."},
   {i:"🥔",t:"<b>Fresh still wins.</b> Despite the QSR image, ~<b>49%</b> of potatoes are sold and cooked whole. In the US, though, ~70% is processed."},
@@ -315,15 +323,20 @@ function makeCharts(){
     data:{labels:CUTS.map(d=>d.t),datasets:[{label:"Million miles of fry / yr",data:CUTS.map(d=>d.mi),backgroundColor:CUTS.map(d=>d.c)}]},
     options:{indexAxis:"y",plugins:{legend:{display:false},title:{display:true,text:"Real MUSHT by cut — straight-line-equivalent (M miles/yr)",color:"#fbf7ef"}},
       scales:{x:{title:{display:true,text:"million miles / yr"},grid:{color:"#332a1c"}},y:{grid:{display:false}}},maintainAspectRatio:false}});
+  new Chart(document.getElementById("tierBar"),{type:"bar",
+    data:{labels:["Foodservice fry volume"],datasets:TIERSPLIT.map(s=>({label:s.t+" ("+s.p+"%)",data:[s.p],backgroundColor:s.c}))},
+    options:{indexAxis:"y",plugins:{legend:{position:"bottom",labels:{font:{size:11}}},title:{display:true,text:"Chains vs independents — share of foodservice fry volume",color:"#fbf7ef"}},
+      scales:{x:{stacked:true,max:100,grid:{color:"#332a1c"},title:{display:true,text:"%"}},y:{stacked:true,grid:{display:false}}},maintainAspectRatio:false}});
   new Chart(document.getElementById("companionBar"),{type:"bar",
     data:{labels:COMPANIONS.map(d=>d.t),datasets:[{label:"Attach share (%)",data:COMPANIONS.map(d=>d.p),backgroundColor:"#F58518"}]},
     options:{indexAxis:"y",plugins:{legend:{display:false},title:{display:true,text:"Most-frequent fry companions (share of fry-accompanied orders)",color:"#fbf7ef"}},
       scales:{x:{title:{display:true,text:"% of fry orders"},grid:{color:"#332a1c"}},y:{grid:{display:false}}},maintainAspectRatio:false}});
   new Chart(document.getElementById("tpsLine"),{type:"line",
     data:{labels:TPS_MONTHS,datasets:[
-      {label:"Monthly TPS",data:TPS_VALS,borderColor:"#8BA43C",backgroundColor:"rgba(139,164,60,.14)",fill:true,tension:.35,pointRadius:4,pointBackgroundColor:TPS_MONTHS.map((m,i)=>i===10?"#F0A830":"#8BA43C")},
+      {label:"NH-weighted TPS",data:TPS_VALS,borderColor:"#8BA43C",backgroundColor:"rgba(139,164,60,.14)",fill:true,tension:.35,pointRadius:4,pointBackgroundColor:TPS_MONTHS.map((m,i)=>i===10?"#F0A830":"#8BA43C")},
+      {label:"Both-hemisphere global",data:TPS_GLOBAL,borderColor:"#F58518",backgroundColor:"transparent",fill:false,tension:.35,pointRadius:3,pointBackgroundColor:"#F58518"},
       {label:"Annual average",data:TPS_MONTHS.map(()=>TPS_ANNUAL),borderColor:"#b7a888",borderDash:[6,5],pointRadius:0,fill:false}]},
-    options:{plugins:{legend:{position:"bottom",labels:{font:{size:11}}},tooltip:{callbacks:{afterLabel:c=>c.dataIndex===10?"Thanksgiving peak":c.dataIndex===0?"Post-holiday trough":""}}},
+    options:{plugins:{legend:{position:"bottom",labels:{font:{size:11}}},tooltip:{callbacks:{afterLabel:c=>c.dataIndex===10?"Thanksgiving peak (NH)":c.dataIndex===0?"Post-holiday trough":""}}},
       scales:{y:{title:{display:true,text:"taters / second"},grid:{color:"#332a1c"}},x:{grid:{color:"#332a1c"}}},maintainAspectRatio:false}});
   // Sankey: production -> fates -> processing -> fries
   const sk=document.getElementById("sankey");

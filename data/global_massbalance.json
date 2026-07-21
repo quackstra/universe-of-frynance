@@ -37,6 +37,33 @@
 
   "fries_within_frozen_pct": { "value": 85, "source": "fries dominate frozen potato products; remainder wedges/tots/hash browns", "confidence": "low" },
 
+  "fries_finished": {
+    "note": "Fries measured as FINISHED product (~50% weight yield from raw potato: peel/trim/moisture). Distinct from the 29.8 Mt RAW-potato fries stream used for MUSHT.",
+    "finished_mt": { "value": 14.9, "derivation": "29.8 Mt raw x ~0.50 finished yield", "confidence": "low" },
+    "yield_from_raw_pct": { "value": 50, "source": "typical finished-fry weight yield from raw potato", "confidence": "medium" }
+  },
+
+  "fry_processors": {
+    "note": "The big three corroborate the ~30 Mt raw / ~15 Mt finished global fries scale. Company tonnages mix finished-product and marketing claims — treat as scale corroboration, not exact.",
+    "confidence": "low",
+    "rows": [
+      { "company": "McCain Foods", "rank": 1, "claim": "makes ~1 in 4 fries worldwide; ~$9B sales; world's largest frozen-potato maker", "url": "https://www.nhh.no/en/research-centres/food/food-news/2025/mccain-foods-from-humble-potatoes-to-an-international-brand/" },
+      { "company": "Lamb Weston", "rank": 2, "claim": "world #2 frozen-potato maker; largest in North America (~$6B+ sales)", "url": "https://hermistonmuseum.org/lamb-westons-path-to-world-domination/" },
+      { "company": "J.R. Simplot", "rank": 3, "claim": "~3 Mt of potatoes/yr; key McDonald's fry supplier", "url": "https://www.coherentmarketinsights.com/blog/insights/major-players-french-fries-industry-1738" }
+    ]
+  },
+
+  "restaurant_fry_volume": {
+    "note": "Split of FOODSERVICE fry volume between chains and the independent/non-chain tail. Independents are ~422k of ~685k US units (60-70%) and ~67% of restaurant sales; chains (top 500) ~33% of sales but over-index on fries, so their fry-volume share (~45%) exceeds their sales share.",
+    "confidence": "medium",
+    "url": "https://www.nrn.com/independent-restaurants/the-independent-restaurant-sector-shrunk-by-2-3-in-2025",
+    "foodservice_split": [
+      { "segment": "Chains (QSR + full-service)", "units_share_pct": 38, "sales_share_pct": 33, "fry_volume_share_pct": 45 },
+      { "segment": "Independent / non-chain (long tail)", "units_share_pct": 62, "sales_share_pct": 67, "fry_volume_share_pct": 55 }
+    ],
+    "retail_vs_foodservice_note": "Separately, a large share of fries is RETAIL (frozen bags cooked at home), outside this foodservice split."
+  },
+
   "fry_cut_mix": {
     "note": "Share of the fries stream by cut geometry (Run-2 deep dive, US-foodservice-weighted). Straight cut ~48% of the total product-type market and higher within QSR fries. MUSHT miles are straight-line-equivalent (curly/waffle are not literal 0.75cm straight lines).",
     "confidence": "low",
@@ -59,6 +86,8 @@
       "confidence": "low",
       "url": "https://www.thomasnet.com/insights/thanksgiving-supply-chain/",
       "values": { "Jan": 0.90, "Feb": 0.94, "Mar": 0.97, "Apr": 0.99, "May": 1.01, "Jun": 1.04, "Jul": 1.06, "Aug": 1.05, "Sep": 1.01, "Oct": 1.03, "Nov": 1.15, "Dec": 1.10 },
+      "global_values": { "Jan": 0.96, "Feb": 0.976, "Mar": 0.988, "Apr": 0.996, "May": 1.004, "Jun": 1.016, "Jul": 1.024, "Aug": 1.02, "Sep": 1.004, "Oct": 1.012, "Nov": 1.06, "Dec": 1.04 },
+      "global_note": "Both-hemisphere global index = 1 + 0.4 x (NH index - 1). Damped because Southern-Hemisphere seasons offset the North by 6 months and most of the world's potato eaters (India, China, tropics) have weak seasonality. The holiday spike is largely a Northern/Western phenomenon — global TPS is far flatter.",
       "drivers": { "Nov": "Thanksgiving — 75% of people eat potatoes; ~214M lb moved pre-holiday", "Dec": "Christmas / holiday mash", "Jan": "post-holiday dip + diets", "Jul": "summer QSR fry peak (travel, cookouts)", "Aug": "back-to-school processed-potato uptick" }
     }
   },
