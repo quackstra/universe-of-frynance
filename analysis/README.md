@@ -4,21 +4,25 @@ The Big Number and its fates. Each fate becomes a capsule under
 `analysis/<fate>/<category>/` with a `REPORT.md`, `data.json`, `workings/`, and
 charts. Run-1 shares are sourced (FAO / CIP / FAOSTAT) and reconcile to 100 %.
 
-## Fate Leaderboard (Run 1 — sourced)
+## Fate Leaderboard (Run 2 — country-weighted)
 
 | # | Fate | Mt/yr | Share | Confidence |
 |---|------|-------|-------|------------|
-| 1 | [Fresh / table food](fresh_food/REPORT.md) | 195.0 | 52.0 % | 🟡 |
-| 2 | [Processing (food)](processing/REPORT.md) | 52.5 | 14.0 % | 🟡 |
+| 1 | [Fresh / table food](fresh_food/REPORT.md) | 183.8 | 49.0 % | 🟡 |
+| 2 | [Processing (food)](processing/REPORT.md) | 63.8 | 17.0 % | 🟡 |
 | 3 | Animal feed | 45.0 | 12.0 % | 🔴 |
 | 4 | Seed (replanting) | 33.8 | 9.0 % | 🔴 |
 | 5 | [Waste & loss (accounted)](waste_loss/REPORT.md) | 30.0 | 8.0 % | 🔴 |
 | 6 | Industrial (non-food) | 18.8 | 5.0 % | 🔴 |
 | | **TOTAL** | **375.0** | **100 %** | — |
 
-**Processing (Tier 2) →** Frozen 26.2 · Crisps 12.6 · Dehydrated 7.3 ·
-Canned/other 6.3 Mt. **[Fries stream](processing/frozen_fries/REPORT.md) ≈ 22.3 Mt
-(5.9 % of all production).**
+**Processing (Tier 2) →** Frozen 35.1 · Crisps 14.0 · Dehydrated 8.3 ·
+Canned/other 6.4 Mt. **[Fries stream](processing/frozen_fries/REPORT.md) ≈ 29.8 Mt
+(7.9 % of all production).**
+
+**Deep dive:** [Fry cuts by geometry & chain](deep-dives/fry-cuts-by-chain/REPORT.md)
+— straight 72 % · curly 4 % (**≈ 12 M miles/yr, mostly Arby's**) · waffle 5 %
+(Chick-fil-A).
 
 **Conscience overlay (not in the 100 %):** ~45 % full-chain FLW ≈ 169 Mt
 lost/wasted (range 25–60 %). See [waste_loss](waste_loss/REPORT.md).

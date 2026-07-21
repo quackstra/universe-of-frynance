@@ -16,7 +16,8 @@ Total global fresh-weight potato production, all varieties, all countries
 | **Production** | **~375 Mt / yr** | The Big Number |
 | **Per-capita** | **~46 kg/person/yr** | The average human's annual spud |
 | **MUSHT (idealized)** | **~3.84 billion miles of fry** | A single 0.75 cm fry, *past Pluto* |
-| **MUSHT (real)** | **~0.23 billion miles** | Only the ~5.9 % that actually becomes fries |
+| **MUSHT (real)** | **~0.30 billion miles** | Only the ~7.9 % that actually becomes fries |
+| **Curly fry** | **~12 M miles** | ~26 round-trips to the Moon — mostly Arby's |
 | **Conscience Number** | **~45 % wasted** | Spuds lost field→fork (roots & tubers waste most) |
 
 ## MUSHT — Make Underutilized Spuds Have Taste
@@ -97,15 +98,17 @@ python3 tools/musht.py         # recompute MUSHT
 
 ## Status
 
-**Run 1 — sourced mass balance + dashboard (2026-07-20):** replaced Run-0
-placeholders with sourced figures (FAOSTAT 2022 production; CIP/FAO utilisation;
-FAO GFLW). Wrote capsules for fresh food, processing, frozen fries, and waste;
-built the interactive [dashboard](index.html) (fork of the Movement template).
-Tier-1 fresh & processing now 🟡; feed/seed/waste/industrial remain 🔴.
-**Run 0** forked the house framework, the mass-balance spine, the 100 % gate, and
-the MUSHT calculator. **Next (Run 2):** country-weighted FBS rebuild to upgrade
-confidence, USDA/Eurostat processing tonnages, a Sankey chart, and the parked
-chain-level fry-cut deep dive. See [`notes/research_agenda.md`](notes/research_agenda.md).
+**Run 2 — country-weighted rebuild + fry-cut deep dive (2026-07-20):**
+country-weighted processing share (US 70 % · EU ~45 % · China 15 % · India 7 % ·
+RoW ~8 %, production-weighted → **17 %**), USDA-grounded frozen split, and the
+**[fry-cuts-by-chain deep dive](analysis/deep-dives/fry-cuts-by-chain/REPORT.md)**
+(curly ≈ 12 M miles/yr, mostly Arby's; waffle from Chick-fil-A). Fresh, processing
+and frozen now 🟡. Dashboard upgraded with a Sankey and a cut-mix chart.
+**Run 1** replaced placeholders with sourced FAO/CIP figures and shipped the
+dashboard. **Run 0** forked the framework, mass-balance spine, 100 % gate, and
+MUSHT calculator. **Next (Run 3):** processor-reported fry volumes (McCain/Lamb
+Weston/Simplot) + trade data, stage-resolved FLW, historic arc. See
+[`notes/research_agenda.md`](notes/research_agenda.md).
 
 ## License
 

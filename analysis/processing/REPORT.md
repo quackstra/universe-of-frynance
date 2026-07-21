@@ -1,19 +1,38 @@
 # Processing (Food) — Capsule
 
-**Fate share:** ~14 % of production ≈ **52.5 Mt/yr** · Confidence 🟡
+**Fate share:** ~17 % of production ≈ **63.8 Mt/yr** · Confidence 🟡
 
 ## What this captures
 Potatoes entering food factories, split into four Tier-2 streams. Excludes
 industrial (non-food) starch/alcohol, which is a separate Tier-1 line.
 
-## Tier-2 split (of the 52.5 Mt processed)
+## Run-2: country-weighted processing share
+
+The global 17 % is a production-weighted blend of wildly different national
+intensities (weighted mean 17.2 %):
+
+| Country/bloc | Prod. share | Processing % |
+|--------------|-------------|--------------|
+| United States | 5.0 % | ~70 % |
+| EU (aggregate) | 12.0 % | ~45 % |
+| China | 25.5 % | ~15 % |
+| India | 15.0 % | ~7 % |
+| Rest of world | 42.5 % | ~8 % |
+
+Because the two biggest producers (China, India = 40 % of world) process little,
+the global share stays modest even though developed producers process 60–80 %.
+
+## Tier-2 split (of the 63.8 Mt processed)
 
 | Category | Share of processing | Mt/yr | Conf |
 |----------|--------------------|-------|------|
-| Frozen (fries/wedges/tots) | 50 % | 26.2 | 🔴 |
-| Crisps / chips | 24 % | 12.6 | 🔴 |
-| Dehydrated (flakes → mash) | 14 % | 7.3 | 🔴 |
-| Canned / other | 12 % | 6.3 | 🔴 |
+| Frozen (fries/wedges/tots) | 55 % | 35.1 | 🟡 |
+| Crisps / chips | 22 % | 14.0 | 🔴 |
+| Dehydrated (flakes → mash) | 13 % | 8.3 | 🔴 |
+| Canned / other | 10 % | 6.4 | 🔴 |
+
+USDA grounds the frozen share: US used **176 M cwt** of raw potato for frozen
+products in 2022 (~61 % of US processing) vs **57.8 M cwt** for chips/shoestrings.
 
 → **Frozen fries** get their own capsule: [frozen_fries](frozen_fries/REPORT.md).
 

@@ -97,7 +97,26 @@ def main() -> None:
         print(f"      - {line}")
 
     print(f"\n  The gap ({(ideal_km-real_km)*MI_PER_KM/1e9:,.2f} billion miles of 'fry we never make')")
-    print("  is itself a headline: most of the spud is not a fry.\n")
+    print("  is itself a headline: most of the spud is not a fry.")
+
+    # Fry-cut breakdown (Run-2 deep dive) — straight-line-equivalent miles by cut.
+    cut_mix = d.get("fry_cut_mix")
+    if cut_mix:
+        real_mi = real_km * MI_PER_KM
+        print("\n  REAL MUSHT by cut geometry (straight-line-equivalent miles):")
+        print(f"    {'cut':<22}{'share':>7}{'Mt':>8}{'M miles':>12}")
+        for c in sorted(cut_mix["cuts"], key=lambda x: x["share_pct"], reverse=True):
+            s = c["share_pct"] / 100
+            cut_mt = production * frac * s
+            cut_mi = real_mi * s
+            print(f"    {c['name']:<22}{c['share_pct']:>6}%{cut_mt:>8.2f}{cut_mi/1e6:>12,.1f}")
+        curly = next((c for c in cut_mix["cuts"] if c["slug"] == "curly"), None)
+        if curly:
+            cmi = real_mi * curly["share_pct"] / 100
+            moon = 384400 * MI_PER_KM
+            print(f"\n    🌀 Curly fry alone: {cmi/1e6:,.1f} million miles "
+                  f"(~{cmi/(2*moon):,.0f} round-trips to the Moon) — mostly Arby's.")
+    print()
 
 
 if __name__ == "__main__":

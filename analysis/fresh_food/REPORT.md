@@ -1,6 +1,10 @@
 # Fresh / Table Food — Capsule
 
-**Fate share:** ~52 % of production ≈ **195 Mt/yr** · Confidence 🟡
+**Fate share:** ~49 % of production ≈ **183.8 Mt/yr** · Confidence 🟡
+
+> **Run-2 update:** trimmed from 52 % → 49 % after the country-weighted
+> processing rebuild lifted processing to 17 %. Fresh is still the largest fate,
+> concentrated in China, India and the rest of the world.
 
 ## What this captures
 Whole potatoes sold for cooking at home or in foodservice (boiled, baked,

@@ -1,42 +1,41 @@
 # Last Session — Universe of Frynance
 
-## Run 1 — sourced mass balance + dashboard (2026-07-20)
+## Run 2 — country-weighted rebuild + fry-cut deep dive (2026-07-20)
 
-Pushed to GitHub (private) and ran a research pass replacing Run-0 placeholders
-with sourced figures.
+Public repo live at github.com/quackstra/universe-of-frynance; dashboard at
+quackstra.github.io/universe-of-frynance.
 
-### Data locked (with citations in data/global_massbalance.json)
-- **Production 375 Mt** (FAOSTAT 2022; China 95.5 Mt / 25.5 %, India 56 Mt /
-  15 %). 🟢
-- **Tier-1 fates** (sum to 100 %): Fresh 52 % 🟡 · Processing 14 % 🟡 · Feed 12 %
-  🔴 · Seed 9 % 🔴 · Waste(accounted) 8 % 🔴 · Industrial 5 % 🔴.
-- **Tier-2 processing**: Frozen 50 · Crisps 24 · Dehydrated 14 · Canned/other 12
-  (% of processing). Fries = frozen × 85 % = **22.3 Mt = 5.9 % of production**.
-- **FLW overlay ~45 %** (~169 Mt, range 25–60 %) — reported separately, NOT in
-  the 100 % (anti-double-count vs the 8 % FBS losses line).
+### Data upgrades (confidence 🔴 → 🟡 on the headline fates)
+- **Processing 14 % → 17 %**, now a country-weighted rebuild (weighted mean
+  17.2 %): US 70 % · EU ~45 % · China 15 % · India 7 % · RoW ~8 %, weighted by
+  production share. See `country_processing` in the data file.
+- **Fresh 52 % → 49 %** (residual after processing rose).
+- **Tier-2 frozen 50 % → 55 %**, USDA-grounded: US used 176 M cwt raw for frozen
+  (61 % of US processing) vs 57.8 M cwt for chips/shoestrings in 2022.
+- **Fries 22.3 → 29.8 Mt = 7.9 %** of production. Real MUSHT **0.23 → 0.30 B mi**.
+  "~1 potato in 13 becomes a fry."
 
-### MUSHT (verified via tools/musht.py)
-- Idealized **3.84 B miles** (41 AU, past Pluto).
-- Real **0.23 B miles** (fries only). Gap ≈ 3.6 B miles → "~1 potato in 17 is a
-  fry."
-
-### Capsules written
-fresh_food, processing (+ frozen_fries), waste_loss — each REPORT.md with sources.
+### Fry-cut deep dive (FRY-R2-001 — the fun one)
+`analysis/deep-dives/fry-cuts-by-chain/`. Cut mix of the fries stream (straight
+72 · crinkle 8 · wedge 6 · waffle 5 · tots 5 · curly 4 %). Headline:
+**🌀 curly fry ≈ 12 M straight-equivalent miles/yr (~26 round-trips to the Moon),
+almost all Arby's**; waffle (~15 M mi) is Chick-fil-A (fastest-growing cut,
++14 % 2024). `tools/musht.py` now prints the per-cut table. Geometry caveat noted
+(curly/waffle aren't literal 0.75 cm straight lines).
 
 ### Dashboard
-Self-contained `index.html` (Chart.js, potato/fry palette) forked from the
-Movement template: hero (Production / MUSHT / Waste), fate leaderboard, fate
-doughnut + processing bar, MUSHT deep-dive, insights.
+Upgraded to Run 2: new numbers everywhere, a **Sankey** (production → fate →
+processing → fries, via chartjs-chart-sankey) and a **fry-cut bar**. Curly-fry
+insight card added.
 
-## ⚠️ Open decision for Ferg
-**GitHub Pages is blocked because the repo is private** ("plan does not support
-Pages for this repository"). The sibling sites (Finance, Movement) are **public**.
-To publish at `quackstra.github.io/universe-of-frynance`, the repo must be flipped
-public (or the plan upgraded). Did NOT flip it — public is a one-way door and
-needs Ferg's explicit OK. The dashboard is committed and ready the moment it goes
-public.
+## Sources added this run
+USDA NASS Potatoes 2022/23; USDA ERS "Fries on the rise"; global-agriculture &
+freshplaza on China 15 %; Springer China/India potato review; Coherent Market
+Insights fry-cut market; AJC Chick-fil-A ~$24B; chefstandards chain fries.
 
-## Next (Run 2)
-Country-weighted FBS rebuild (China+India+EU+US) to move Tier-1 to 🟡/🟢; USDA
-ERS + Eurostat processing tonnages; stage-resolved FLW; Sankey chart; parked
-chain-level fry-cut deep dive (FRY-R2-001).
+## Next (Run 3)
+- Processor-reported fry volumes (McCain / Lamb Weston / Simplot) + frozen-fry
+  trade data to move fries from 🟡 toward 🟢.
+- Stage-resolved FLW (field/storage/processing/retail/consumer).
+- Feed / seed / industrial still 🔴 — need a direct FAO FBS pull.
+- Historic arc: rise of the frozen fry (mid-20thC → now).

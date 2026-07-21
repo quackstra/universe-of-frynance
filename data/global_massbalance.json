@@ -6,29 +6,53 @@
   },
   "density_g_per_cm3": { "value": 1.08, "source": "raw potato specific gravity ~1.05-1.09 (potatoes sink in water)", "confidence": "medium" },
   "last_updated": "2026-07-20",
-  "run": 1,
+  "run": 2,
 
   "tier1_fates": [
-    { "slug": "fresh_food",   "name": "Fresh / table food",       "share_pct": 52, "confidence": "medium", "source": "CIP: fresh consumption ~2/3 of harvest; total food (fresh+processed) ~2/3, of which fresh is the bulk", "url": "https://cipotato.org/potato/potato-facts-and-figures/" },
-    { "slug": "processing",   "name": "Processing (food)",        "share_pct": 14, "confidence": "medium", "source": "FAO: processing 10% of production in 2013 and rising; China ~15%, India ~7%, NL/US 55-60%; global weighted ~14%", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12111199/" },
-    { "slug": "feed",         "name": "Animal feed",              "share_pct": 12, "confidence": "low",    "source": "FAO FBS utilisation accounts; large share of crop used as feed (culls/surplus)", "url": "https://www.fao.org/faostat/en/#data/FBS" },
+    { "slug": "fresh_food",   "name": "Fresh / table food",       "share_pct": 49, "confidence": "medium", "source": "residual of FBS food line after country-weighted processing; CIP: fresh ~2/3 of harvest, concentrated in China/India/RoW", "url": "https://cipotato.org/potato/potato-facts-and-figures/" },
+    { "slug": "processing",   "name": "Processing (food)",        "share_pct": 17, "confidence": "medium", "source": "Run-2 country-weighted rebuild: China 15% x India 7% x EU ~45% x US 70% x RoW ~8%, production-weighted = ~17%", "url": "https://www.global-agriculture.com/farming-agriculture/chinas-15-processing-share-signals-shifts-in-the-global-potato-value-chain/" },
+    { "slug": "feed",         "name": "Animal feed",              "share_pct": 12, "confidence": "low",    "source": "FAO FBS utilisation accounts; large share used as feed (culls/surplus)", "url": "https://www.fao.org/faostat/en/#data/FBS" },
     { "slug": "seed",         "name": "Seed (replanting)",        "share_pct": 9,  "confidence": "low",    "source": "FAO FBS; potatoes have a high seed rate (tubers held back for planting)", "url": "https://www.fao.org/faostat/en/#data/FBS" },
-    { "slug": "waste_loss",   "name": "Waste & loss (accounted)", "share_pct": 8,  "confidence": "low",    "source": "FAO FBS 'losses' line (post-harvest accounted losses; distinct from full-chain FLW overlay)", "url": "https://www.fao.org/faostat/en/#data/FBS" },
+    { "slug": "waste_loss",   "name": "Waste & loss (accounted)", "share_pct": 8,  "confidence": "low",    "source": "FAO FBS 'losses' line (post-harvest accounted; distinct from full-chain FLW overlay)", "url": "https://www.fao.org/faostat/en/#data/FBS" },
     { "slug": "industrial",   "name": "Industrial (non-food)",    "share_pct": 5,  "confidence": "low",    "source": "native/modified starch, alcohol (vodka/aquavit), bioplastics; larger in developed producers", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12111199/" }
   ],
 
+  "country_processing": {
+    "note": "Production-weighted processing share (Run-2 rebuild). Weighted mean = 17.2%.",
+    "rows": [
+      { "country": "China",         "prod_share_pct": 25.5, "processing_pct": 15, "source": "China ~15% processed; >2/3 fresh; net FF exporter 2022", "url": "https://www.freshplaza.com/north-america/article/9787654/china-s-processing-share-at-15-reshapes-global-potato-value-chain/" },
+      { "country": "India",         "prod_share_pct": 15.0, "processing_pct": 7,  "source": "India ~7% processed; fresh dominates", "url": "https://link.springer.com/article/10.1007/s11540-025-09903-8" },
+      { "country": "EU (aggregate)","prod_share_pct": 12.0, "processing_pct": 45, "source": "NL/BE/DE/FR 60-80% processed; E-EU more fresh; blended ~45%", "url": "https://www.potatonewstoday.com/2025/11/12/fresh-vs-processed-potatoes-globally-is-the-table-potato-losing-ground-or-just-changing-shape/" },
+      { "country": "United States", "prod_share_pct": 5.0,  "processing_pct": 70, "source": "USDA: processed ~70% of US availability since 2010", "url": "https://www.ers.usda.gov/data-products/charts-of-note/107266" },
+      { "country": "Rest of world", "prod_share_pct": 42.5, "processing_pct": 8,  "source": "Africa/C-Asia/Russia etc. mostly fresh + feed", "url": "https://www.fao.org/4/i0200e/i0200e06.htm" }
+    ]
+  },
+
   "tier2_processing": [
-    { "slug": "frozen",      "name": "Frozen (fries/wedges/tots)", "share_of_processing_pct": 50, "confidence": "low", "source": "frozen (fries-led) is the largest processed potato category globally; big-three McCain/Lamb Weston/Simplot", "url": "https://www.mdpi.com/2304-8158/14/10/1758" },
-    { "slug": "crisps",      "name": "Crisps / chips",             "share_of_processing_pct": 24, "confidence": "low", "source": "second-largest processed category (snack)", "url": "https://www.mdpi.com/2304-8158/14/10/1758" },
-    { "slug": "dehydrated",  "name": "Dehydrated (flakes -> mash)","share_of_processing_pct": 14, "confidence": "low", "source": "flakes/granules for instant mash + ingredients", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12111199/" },
-    { "slug": "canned_other","name": "Canned / other",            "share_of_processing_pct": 12, "confidence": "low", "source": "canned/refrigerated/salad + residual", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12111199/" }
+    { "slug": "frozen",      "name": "Frozen (fries/wedges/tots)", "share_of_processing_pct": 55, "confidence": "medium", "source": "USDA: US frozen = 176M cwt raw (61% of US processing); frozen is the largest global processed form", "url": "https://esmis.nal.usda.gov/sites/default/release-files/fx719m44h/wh248r00m/1257ct49z/pots0925.pdf" },
+    { "slug": "crisps",      "name": "Crisps / chips",             "share_of_processing_pct": 22, "confidence": "low", "source": "USDA: US chips/shoestring 57.8M cwt (~20% of US processing); larger share in some snack-heavy markets", "url": "https://esmis.nal.usda.gov/sites/default/release-files/fx719m44h/wh248r00m/1257ct49z/pots0925.pdf" },
+    { "slug": "dehydrated",  "name": "Dehydrated (flakes -> mash)","share_of_processing_pct": 13, "confidence": "low", "source": "flakes/granules for instant mash + ingredients", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12111199/" },
+    { "slug": "canned_other","name": "Canned / other",            "share_of_processing_pct": 10, "confidence": "low", "source": "canned/refrigerated/salad + residual", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12111199/" }
   ],
 
   "fries_within_frozen_pct": { "value": 85, "source": "fries dominate frozen potato products; remainder wedges/tots/hash browns", "confidence": "low" },
 
+  "fry_cut_mix": {
+    "note": "Share of the fries stream by cut geometry (Run-2 deep dive, US-foodservice-weighted). Straight cut ~48% of the total product-type market and higher within QSR fries. MUSHT miles are straight-line-equivalent (curly/waffle are not literal 0.75cm straight lines).",
+    "confidence": "low",
+    "cuts": [
+      { "slug": "straight",  "name": "Straight / shoestring", "share_pct": 72, "exemplar_chains": "McDonald's, Burger King, Wendy's, Five Guys, In-N-Out", "url": "https://www.coherentmarketinsights.com/market-insight/french-fries-market-3093" },
+      { "slug": "crinkle",   "name": "Crinkle-cut",           "share_pct": 8,  "exemplar_chains": "retail frozen, Sonic 'Groovy Fries' (2024)", "url": "https://www.aol.com/waffle-wedge-shoestring-most-popular-121600473.html" },
+      { "slug": "wedge",     "name": "Wedge / steak",         "share_pct": 6,  "exemplar_chains": "KFC, pubs, retail", "url": "https://www.freddys.com/blog/types-of-french-fries" },
+      { "slug": "waffle",    "name": "Waffle / lattice",      "share_pct": 5,  "exemplar_chains": "Chick-fil-A (fastest-growing cut, +14% 2024)", "url": "https://www.foxnews.com/food-drink/chick-fil-a-is-the-waffle-fry-working.amp" },
+      { "slug": "tots",      "name": "Tots / hash",           "share_pct": 5,  "exemplar_chains": "Sonic, retail", "url": "https://www.freddys.com/blog/types-of-french-fries" },
+      { "slug": "curly",     "name": "Curly",                 "share_pct": 4,  "exemplar_chains": "Arby's, Jack in the Box, Hardee's", "url": "https://chefstandards.com/fast-food-chains-fries/" }
+    ]
+  },
+
   "food_loss_waste_overlay": {
     "note": "Cross-cutting overlay along field->consumer chain. NOT summed into tier1_fates (would double-count with the FBS 'losses' line). Reported as the Conscience Number.",
-    "chain_loss_pct": { "value": 45, "source": "Roots & tubers have the highest FLW of any commodity group (>25%); regional range 33% (N.Africa/W&C Asia) to 60% (N.America/Oceania). Potato harvest often 'reduced by half from field to fork'.", "url": "https://www.tabledebates.org/research-library/waste-potato-supply-chain-potato-harvest-reduced-half-field-fork", "confidence": "medium" },
+    "chain_loss_pct": { "value": 45, "source": "Roots & tubers have the highest FLW of any commodity group (>25%); regional range 33% (N.Africa/W&C Asia) to 60% (N.America/Oceania). Potato harvest often 'reduced by half from field to fork'. Fresh ~30% disposed vs processing ~4-5%.", "url": "https://www.tabledebates.org/research-library/waste-potato-supply-chain-potato-harvest-reduced-half-field-fork", "confidence": "medium" },
     "range_pct": { "low": 25, "high": 60 }
   },
 
