@@ -23,6 +23,7 @@ Total global fresh-weight potato production, all varieties, all countries
 | **Fry Index** | **4.7× range** | A McD fry calorie costs 4.7× more in Zurich than Mumbai |
 | **CPI (Consumed Potato Index)** | **11 % → 2 %** | Potato's share of calories: Rwanda/Belarus ~11 %; fries: UK 2.5 % |
 | **MCE-PF / VAM** | **+0.5 · 74×** | Frying adds ~+0.5 income-elasticity; a QSR fry is ~74× the farm potato |
+| **Fry Bill (induced)** | **~18 Mt · 0.9 % oil** | Potatoes existing only because we fry; + ~900k jobs, 67 Mt CO₂e |
 | **Conscience Number** | **~45 % wasted** | Spuds lost field→fork (roots & tubers waste most) |
 
 ## MUSHT — Make Underutilized Spuds Have Taste
@@ -102,6 +103,13 @@ python3 tools/musht.py         # recompute MUSHT
 ```
 
 ## Status
+
+**Run 9 — the Fry Bill / induced supply chain (2026-07-20):** estimated the
+potato demand that exists *only* because we fry (**~18 Mt, ~4.8 % of world
+production**, via the MCE-PF counterfactual) and the sector-by-sector input bill
+to serve it — **frying oil 1.94 Mt (~0.9 % of all world veg oil), 44.7 TWh energy,
+8.6 km³ water, ~1.8 B labor-hours (~900k jobs), 67 Mt CO₂e**. New `tools/fry_bill.py`
++ [deep dive](analysis/deep-dives/fry-bill/REPORT.md) + dashboard section.
 
 **Run 8 — the Value-Add Battery (2026-07-20):** measured the value of turning a
 potato into a fry every way we could. Headline **MCE-PF** (Marginal Consumption

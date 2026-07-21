@@ -239,6 +239,29 @@
     ]
   },
 
+  "fry_bill": {
+    "note": "The Fry Bill — the induced supply chain. (1) how much potato demand exists ONLY because of the fry (counterfactual via MCE-PF), and (2) the sector-by-sector input bill to keep the world eating potatoes as fries.",
+    "confidence": "low",
+    "fries_raw_mt": 29.8,
+    "finished_fries_mt": 14.9,
+    "servings_billion": 135,
+    "serving_g": 110,
+    "induced_demand": {
+      "note": "Without the fry format, how much of the fries stream would simply not be eaten? Model: a share reverts to fresh boiled potato; the rest exits to non-potato foods (the income-elastic demand the fry sustains — see MCE-PF).",
+      "revert_to_fresh_share": 0.40,
+      "confidence": "low"
+    },
+    "inputs": [
+      { "sector": "Frying oil",        "intensity": 0.13,  "basis": "per_kg_finished", "unit": "Mt",        "context": "~0.9% of all vegetable oil humanity produces (~220 Mt)", "url": "https://frenchfriespro.com/french-fry-nutrition-info/" },
+      { "sector": "Salt",              "intensity": 0.012, "basis": "per_kg_finished", "unit": "Mt",        "context": "~180,000 tonnes of edible salt on the world's fries", "url": "https://foodstruct.com/food/french-fries" },
+      { "sector": "Energy (proc+cold+cook)", "intensity": 3.0, "basis": "per_kg_finished", "unit": "TWh", "context": "~1.4x Ireland's annual electricity; electricity is 70-93% of processing GHG", "url": "https://csanr.wsu.edu/out-of-the-frying-pan-and-into-the-fryer-climate-mitigation-opportunities-for-french-fries/" },
+      { "sector": "Water footprint",   "intensity": 574.0, "basis": "per_kg_finished", "unit": "km3",       "context": "~8.5 km3/yr — mostly green (rain) crop water; 574 L per kg frozen fries", "url": "https://www.waterfootprint.org/resources/schoolresources/Products.pdf" },
+      { "sector": "Labor",             "intensity": 48.0,  "basis": "sec_per_serving", "unit": "billion_hr","context": "~900,000 full-time-equivalent jobs frying and serving the world", "url": "https://www.ers.usda.gov/topics/food-markets-prices/food-service-industry" },
+      { "sector": "Packaging",         "intensity": 0.015, "basis": "kg_per_serving",  "unit": "Mt",        "context": "~2 Mt of cartons, bags and boxes", "url": "https://www.mccain.com/" },
+      { "sector": "CO2e emissions",    "intensity": 4.5,   "basis": "per_kg_finished", "unit": "Mt",        "context": "~67 Mt CO2e — a small nation's footprint; frozen fries are the highest-emission potato product", "url": "https://www.sciencedirect.com/science/article/abs/pii/S004896972037193X" }
+    ]
+  },
+
   "food_loss_waste_overlay": {
     "note": "Cross-cutting overlay along field->consumer chain. NOT summed into tier1_fates (would double-count with the FBS 'losses' line). Reported as the Conscience Number.",
     "chain_loss_pct": { "value": 45, "source": "Roots & tubers have the highest FLW of any commodity group (>25%); regional range 33% (N.Africa/W&C Asia) to 60% (N.America/Oceania). Potato harvest often 'reduced by half from field to fork'. Fresh ~30% disposed vs processing ~4-5%.", "url": "https://www.tabledebates.org/research-library/waste-potato-supply-chain-potato-harvest-reduced-half-field-fork", "confidence": "medium" },

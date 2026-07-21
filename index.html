@@ -107,6 +107,7 @@ nav .nav-links a:hover{color:var(--text)}
     <li><a href="#ppc">PPC</a></li>
     <li><a href="#cpi">CPI</a></li>
     <li><a href="#valueadd">Value-Add</a></li>
+    <li><a href="#frybill">Fry Bill</a></li>
     <li><a href="#insights">Insights</a></li>
   </ul>
 </div></nav>
@@ -114,7 +115,7 @@ nav .nav-links a:hover{color:var(--text)}
 <!-- HERO -->
 <section class="hero visible" id="hero">
   <div class="container" style="display:flex;flex-direction:column;align-items:center">
-    <div class="hero-badge">Open Research Project · Run 8 · 🥔🍟</div>
+    <div class="hero-badge">Open Research Project · Run 9 · 🥔🍟</div>
     <h1>Universe of Frynance</h1>
     <p class="tagline">What happens to every potato on Earth?</p>
     <div class="hero-numbers">
@@ -277,6 +278,30 @@ nav .nav-links a:hover{color:var(--text)}
   </div>
 </div></section>
 
+<!-- FRY BILL -->
+<section id="frybill"><div class="container">
+  <h2>The Fry Bill — the induced supply chain</h2>
+  <p class="section-subtitle">The fry doesn't just add value — it induces a whole supply chain. How many potatoes exist only because we fry, and what does frying the world cost, sector by sector?</p>
+  <div class="dd">
+    <span class="dd-badge">The Footprint Number</span>
+    <p class="dd-kicker"><b>~18 Mt of potato demand — ~4.8 % of <em>all</em> world production — exists only because we turn potatoes into fries.</b> Absent the fry, ~40 % reverts to fresh boiled potato and ~60 % simply vanishes (the income-elastic demand the fry sustains — see MCE-PF). Everything below is the supply chain built to serve it.</p>
+    <div class="dd-grid">
+      <div>
+        <div class="dd-stat"><span class="label">🛢️ Frying oil</span><span class="value">1.94 Mt <span class="muted">(~0.9% of world veg oil)</span></span></div>
+        <div class="dd-stat"><span class="label">🧂 Salt</span><span class="value">0.18 Mt</span></div>
+        <div class="dd-stat"><span class="label">⚡ Energy (proc+cold+cook)</span><span class="value">44.7 TWh <span class="muted">(~1.4× Ireland)</span></span></div>
+        <div class="dd-stat"><span class="label">💧 Water footprint</span><span class="value">8.6 km³</span></div>
+        <div class="dd-stat"><span class="label">👷 Labor</span><span class="value" style="color:var(--accent)">1.8 B hrs (~900k jobs)</span></div>
+        <div class="dd-stat"><span class="label">📦 Packaging</span><span class="value">2.0 Mt</span></div>
+        <div class="dd-stat"><span class="label">🌍 CO₂e</span><span class="value">67 Mt</span></div>
+      </div>
+      <div class="chart-canvas-wrap" style="height:300px"><canvas id="inducedDoughnut"></canvas></div>
+    </div>
+    <p class="dd-kicker" style="margin-top:26px"><b>The fry's share of the planet.</b> Small percentages, staggering absolutes: keeping the world crispy takes <b>~0.9 % of all the vegetable oil humanity presses</b> and <b>~900,000 full-time jobs</b>. Reproduce: <span class="mono" style="color:var(--gold)">python3 tools/fry_bill.py</span>.</p>
+    <div class="chart-canvas-wrap" style="height:280px"><canvas id="frybillWorldBar"></canvas></div>
+  </div>
+</div></section>
+
 <!-- INSIGHTS -->
 <section id="insights"><div class="container">
   <h2>Key Insights</h2>
@@ -285,7 +310,7 @@ nav .nav-links a:hover{color:var(--text)}
 </div></section>
 
 <footer><div class="container">
-  <p>Potato mass balance · 6 fates · MUSHT · TPS · PPC · Fry Index · CPI · MCE-PF/VAM · Run 8 · 2026-07-20</p>
+  <p>Potato mass balance · 6 fates · MUSHT · TPS · PPC · Fry Index · CPI · MCE-PF/VAM · Fry Bill · Run 9 · 2026-07-20</p>
   <p><a href="https://github.com/quackstra/universe-of-frynance" target="_blank" rel="noopener">View the full research on GitHub</a> &middot; <a href="analysis/aggregate/BIG_NUMBER.md">The Big Number</a> &middot; sister to <a href="https://quackstra.github.io/universe-of-finance">Finance</a> &amp; <a href="https://quackstra.github.io/universe-of-movement">Movement</a></p>
   <p style="margin-top:14px">&copy; 2026 Universe of Frynance &middot; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
 </div></footer>
@@ -349,6 +374,12 @@ const VAM=[
   {v:"Retail raw (boil at home)",m:8,c:"#8BA43C"},{v:"Retail frozen (fry at home)",m:7,c:"#8BA43C"},
   {v:"QSR (McDonald's medium)",m:74,c:"#F58518"},{v:"Fine dining (frites)",m:114,c:"#D64545"},
 ];
+const FRYBILL_INDUCED=[{l:"Induced (vanishes w/o fry)",v:17.9,c:"#D64545"},{l:"Reverts to fresh boiled",v:11.9,c:"#8BA43C"}];
+const FRYBILL_WORLD=[
+  {s:"Induced potato (% world crop)",v:4.8,c:"#A0703C"},{s:"Frying oil (% world veg oil)",v:0.9,c:"#F0A830"},
+  {s:"Water (% freshwater use)",v:0.21,c:"#72B7B2"},{s:"Energy (% world electricity)",v:0.15,c:"#E8B84B"},
+  {s:"CO₂e (% global emissions)",v:0.13,c:"#D64545"},
+];
 const INSIGHTS=[
   {i:"🍟",t:"<b>Only ~1 potato in 13</b> becomes a fry. Fries loom huge culturally but are just <b>~8%</b> of what Earth grows."},
   {i:"🌀",t:"<b>Curly fry ≈ 12 million miles</b> a year — ~26 round-trips to the Moon — and it's <b>almost all Arby's</b>. Waffle (~15 M mi) is Chick-fil-A."},
@@ -363,6 +394,8 @@ const INSIGHTS=[
   {i:"📊",t:"<b>Potato is a bottom-decile calorie.</b> Its share of the diet falls steadily from the poorest decile (4.6%) to the richest (2.4%) — the cheapest calories feed the tightest budgets."},
   {i:"📈",t:"<b>Frying beats Engel's law.</b> The raw potato is an inferior good (ε≈−0.4 to −1.2); the fry is normal — so processing adds ~+0.5 of income-elasticity (MCE-PF). That's why the fry industry exists."},
   {i:"🚜",t:"<b>The farmer gets ~5¢ of a $3.56 fry</b> (~1.4%). A QSR fry is worth ~74× the farm-gate potato inside it; fine-dining frites ~114×."},
+  {i:"🌱",t:"<b>~18 Mt of potatoes (~4.8% of world production) exist only because we fry</b> — income-elastic demand that would vanish if the fry didn't."},
+  {i:"🛢️",t:"<b>Frying the world burns ~0.9% of all vegetable oil humanity presses</b> (~1.9 Mt) and sustains <b>~900,000 full-time jobs</b> — the fry's induced supply chain."},
   {i:"🌏",t:"<b>China + India grow ~40%</b> of the world's potatoes but process only 15% / 7% — that's why the global processed share is only ~17%."},
   {i:"🥔",t:"<b>Fresh still wins.</b> Despite the QSR image, ~<b>49%</b> of potatoes are sold and cooked whole. In the US, though, ~70% is processed."},
   {i:"🗑️",t:"<b>The bin rivals the plate.</b> ~45% of potatoes are lost field→fork (~169 Mt) — roots & tubers waste more than any crop group."},
@@ -451,6 +484,13 @@ function makeCharts(){
     data:{labels:VAM.map(d=>d.v),datasets:[{label:"× farm-gate potato value",data:VAM.map(d=>d.m),backgroundColor:VAM.map(d=>d.c)}]},
     options:{indexAxis:"y",plugins:{legend:{display:false},title:{display:true,text:"VAM — value multiple over the farm-gate potato inside the fry",color:"#fbf7ef"},tooltip:{callbacks:{label:c=>` ${c.parsed.x}× the farm potato`}}},
       scales:{x:{title:{display:true,text:"× farm-gate potato value"},grid:{color:"#332a1c"}},y:{grid:{display:false}}},maintainAspectRatio:false}});
+  new Chart(document.getElementById("inducedDoughnut"),{type:"doughnut",
+    data:{labels:FRYBILL_INDUCED.map(d=>d.l),datasets:[{data:FRYBILL_INDUCED.map(d=>d.v),backgroundColor:FRYBILL_INDUCED.map(d=>d.c),borderColor:"#14100a",borderWidth:2}]},
+    options:{plugins:{legend:{position:"bottom",labels:{padding:10,font:{size:11}}},title:{display:true,text:"Fries stream (29.8 Mt raw) if the fry vanished",color:"#fbf7ef"},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.parsed} Mt`}}},cutout:"55%",maintainAspectRatio:false}});
+  new Chart(document.getElementById("frybillWorldBar"),{type:"bar",
+    data:{labels:FRYBILL_WORLD.map(d=>d.s),datasets:[{label:"% of the relevant global total",data:FRYBILL_WORLD.map(d=>d.v),backgroundColor:FRYBILL_WORLD.map(d=>d.c)}]},
+    options:{indexAxis:"y",plugins:{legend:{display:false},title:{display:true,text:"The fry's share of each global sector (%)",color:"#fbf7ef"},tooltip:{callbacks:{label:c=>` ${c.parsed.x}% of its global total`}}},
+      scales:{x:{title:{display:true,text:"% of the relevant world total"},grid:{color:"#332a1c"}},y:{grid:{display:false}}},maintainAspectRatio:false}});
   // Sankey: production -> fates -> processing -> fries
   const sk=document.getElementById("sankey");
   if(sk && Chart.registry.controllers.get("sankey")){

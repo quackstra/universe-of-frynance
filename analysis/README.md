@@ -49,6 +49,9 @@ lost/wasted (range 25–60 %). See [waste_loss](waste_loss/REPORT.md).
 - [**The Value-Add Battery (MCE-PF & VAM)**](deep-dives/value-add/REPORT.md) — how
   many ways to measure the value of turning a potato into a fry (elasticity +0.5,
   price 74×, calories 4×, WTP 8×).
+- [**The Fry Bill (induced supply chain)**](deep-dives/fry-bill/REPORT.md) —
+  potatoes existing only because we fry (~18 Mt) + the sector input bill (oil,
+  salt, energy, water, labor, packaging, CO₂e).
 
 ## Capsules (to be written — inside-out)
 
