@@ -39,8 +39,12 @@ levels, not just "fry value."
 | 2025 | $4.29 | 1.34 | +294 % |
 
 **A US McDonald's fry has gone ~3.9× since 2000** (0.34 → 1.34 ¢/cal). McDonald's
-prices rose ~100 % in the decade to 2024 — **nearly double general inflation** —
-so the fry has become measurably dearer per calorie, not just nominally.
+prices rose ~100 % in the decade to 2024 — **nearly double general inflation**.
+
+**Run-7 — real vs nominal.** Deflating by US CPI-U to 2025 dollars, the fry went
+from **$2.03 (2000) → $4.29 (2025) = ~2.1× in real terms.** So even after stripping
+out general inflation the fry roughly *doubled* — and almost all of the real rise
+is **post-2020** ($3.58 → $4.29). The dashboard plots nominal and real together.
 
 ## Method & caveats
 FX at 2025 rates (₹83, ¥150, £0.79, €0.92, CHF 0.91 per USD). Country prices are

@@ -1,38 +1,42 @@
 # Last Session — Universe of Frynance
 
-## Run 6 — the Fry Index & fry-flation (2026-07-20)
+## Run 7 — CPI (Consumed Potato Index) + real fry-flation (2026-07-20)
 
-Internationalised + time-extended the PPC metric. Live at
-quackstra.github.io/universe-of-frynance.
+Live at quackstra.github.io/universe-of-frynance.
 
-### The Fry Index (international PPC) — `tools/fry_index.py`, `fry_index` block
-- McDonald's medium (320 cal) priced across countries, Big Mac Index style:
-  India 0.41 · Japan 0.69 · UK 0.71 · Eurozone 1.09 · USA 1.11 · Switzerland 1.93
-  ¢/cal. **A fry calorie costs ~4.7× more in Zurich than Mumbai.**
-- Local icons: UK chippy chips 0.55 ¢/cal (great rich-world deal), Belgian
-  friterie frites 0.75.
+### CPI — Consumed Potato Index (`tools/cpi.py`, `consumed_potato_index` block)
+- Potato's share of a country's dietary energy supply (as-eaten, incl. fry oil),
+  with a fries sub-share.
+- Country ranking (potato% / fry%): Rwanda 11/0.2 · Belarus 11/1.0 · Ukraine
+  9/0.8 · Peru 6/0.6 · Poland 6/1.0 · UK 5.5/2.5 · Ireland 5/1.8 · USA 3.5/2.0 ·
+  China 2.5/0.5 · India 2/0.3 · World 2.4/0.4.
+- **Headline: most potato-dependent ≠ most fry-dependent.** Rwanda/Belarus lean
+  hardest on the potato but as fresh/boiled staple; the UK & US are the FRY
+  nations (highest fried-potato calorie share).
+- **Income deciles (US):** potato-calorie share falls 4.6% (D1) → 2.4% (D10) —
+  cheap staple feeds tight budgets (ties to PPC). Fry curve flatter (2.4→1.7) —
+  the honest nuance: fast-food FREQUENCY rises with income (CDC 31.7%→42.0%) but
+  lower-income diets draw a higher SHARE of FAFH calories from cheap fried food
+  (ERS 16.4% vs 15.3%). Modeled 🔴.
 
-### Fry-flation (over time) — `fry_flation` block
-- US McD medium: 2000 $1.09 → 2025 $4.29 = **3.9× nominal** (PPC 0.34 → 1.34
-  ¢/cal). McD prices rose ~100% in the decade to 2024 — ~2× general inflation.
+### Real fry-flation (Run-7 base item)
+- Added cpi_index (US CPI-U) to fry_flation; fry_index.py now prints nominal +
+  real(2025$). **2000→2025: 3.9× nominal but ~2.1× REAL** — the fry doubled even
+  after inflation, almost all post-2020 ($3.58→$4.29 real). Dashboard fry-flation
+  chart now has nominal + real lines.
 
 ### Dashboard
-PPC section now also has a **Fry Index country bar** (green<0.75<orange<1.5<red)
-and a **fry-flation line** (2000→2025). New insight card. Run 6 badge/footer.
-
-### Data anchors
-gobankingrates (US vs Europe McD); Switzerland CHF 5.60; UK chippy chips £~3;
-Belgian frites €3.20/468 cal; Visual Capitalist McD inflation 2014-24 (+~100%);
-McD-reported 2019 avg $2.29, 2024 $4.19. FX 2025: ₹83/¥150/£0.79/€0.92/CHF0.91.
+New **CPI section**: country grouped bar (potato vs fry %) + income-decile line.
+Real-$ line added to fry-flation. 3 new insight cards, nav link, Run 7 badge.
 
 ## Full metric stack
-Big Number (375 Mt) · per-capita · MUSHT (3.84B mi) · TPS (~79k/s) · PPC
-(0.24-2.00 ¢/cal) · **Fry Index (4.7× range) + fry-flation (3.9×)** · Conscience
-(~45%). Tools: massbalance, musht, tps, ppc, fry_index, scout. Gate PASS.
+Big Number · per-capita · MUSHT · TPS · PPC · Fry Index (+fry-flation nominal &
+real) · **CPI (Consumed Potato Index)** · Conscience. Tools: massbalance, musht,
+tps, ppc, fry_index, cpi, scout. Gate PASS.
 
-## Next (Run 7)
-- PPP-adjust the Fry Index (currently nominal FX); add more countries.
-- Inflation-adjust fry-flation (real vs nominal); overlay CPI.
-- Ground casual/fine-dining PPC rows (still 🔴).
-- Still-open from earlier: exact processor tonnages; POS companion attach; FBS
-  feed/seed/industrial pull.
+## Next (Run 8)
+- PPP-adjust the Fry Index (still nominal FX); "minutes of median wage per fry".
+- Ground the CPI with real FAO FBS potato-DES-share numbers (replace modeled).
+- Direct potato-by-income-decile survey data (replace the modeled deciles).
+- Still-open: exact processor tonnages; POS companion attach; FBS feed/seed pull;
+  ground casual/fine-dining PPC rows.

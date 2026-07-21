@@ -165,19 +165,59 @@
   },
 
   "fry_flation": {
-    "note": "Fry-flation — US McDonald's medium fries nominal price over time (320 cal). Prices rose ~2x in a decade, nearly double general inflation. PPC computed by the tool.",
+    "note": "Fry-flation — US McDonald's medium fries nominal price over time (320 cal). cpi_index is US CPI-U (1982-84=100); the tool deflates to base_year 2025 dollars for the REAL series.",
     "confidence": "medium",
     "calories": 320,
+    "base_year": 2025,
     "url": "https://www.visualcapitalist.com/charted-mcdonalds-price-inflation-2014-2024/",
     "series": [
-      { "year": 2000, "usd": 1.09 },
-      { "year": 2010, "usd": 1.49 },
-      { "year": 2014, "usd": 1.79 },
-      { "year": 2019, "usd": 2.29 },
-      { "year": 2020, "usd": 2.89 },
-      { "year": 2024, "usd": 4.19 },
-      { "year": 2025, "usd": 4.29 }
+      { "year": 2000, "usd": 1.09, "cpi_index": 172 },
+      { "year": 2010, "usd": 1.49, "cpi_index": 218 },
+      { "year": 2014, "usd": 1.79, "cpi_index": 237 },
+      { "year": 2019, "usd": 2.29, "cpi_index": 256 },
+      { "year": 2020, "usd": 2.89, "cpi_index": 259 },
+      { "year": 2024, "usd": 4.19, "cpi_index": 314 },
+      { "year": 2025, "usd": 4.29, "cpi_index": 321 }
     ]
+  },
+
+  "consumed_potato_index": {
+    "note": "CPI — the Consumed Potato Index: potato's share of a country's dietary energy SUPPLY (as-eaten, incl. frying oil for fries), with a fries-only sub-share. Supply-based (FAO FBS style, includes some waste) — an upper bound on intake. Reveals the staple-vs-fry-culture divide: highest potato-dependence is NOT highest fry-dependence.",
+    "confidence": "low",
+    "urls": {
+      "consumption": "https://www.freshplaza.com/europe/article/9839223/belarus-leads-europe-in-potato-consumption/",
+      "income": "https://www.ers.usda.gov/data-products/charts-of-note/chart-detail?chartId=80284",
+      "income2": "https://www.cdc.gov/nchs/products/databriefs/db322.htm"
+    },
+    "world": { "potato_kcal_pct": 2.4, "fry_kcal_pct": 0.4 },
+    "countries": [
+      { "country": "Rwanda",  "potato_kcal_pct": 11.0, "fry_kcal_pct": 0.2, "note": "2nd staple after cassava" },
+      { "country": "Belarus", "potato_kcal_pct": 11.0, "fry_kcal_pct": 1.0, "note": "world's top potato eater (181 kg/yr)" },
+      { "country": "Ukraine", "potato_kcal_pct": 9.0,  "fry_kcal_pct": 0.8 },
+      { "country": "Peru",    "potato_kcal_pct": 6.0,  "fry_kcal_pct": 0.6, "note": "potato's homeland" },
+      { "country": "Poland",  "potato_kcal_pct": 6.0,  "fry_kcal_pct": 1.0 },
+      { "country": "UK",      "potato_kcal_pct": 5.5,  "fry_kcal_pct": 2.5, "note": "chip-shop culture — highest fry share" },
+      { "country": "Ireland", "potato_kcal_pct": 5.0,  "fry_kcal_pct": 1.8 },
+      { "country": "USA",     "potato_kcal_pct": 3.5,  "fry_kcal_pct": 2.0, "note": "the fry nation — most potato calories are fried" },
+      { "country": "China",   "potato_kcal_pct": 2.5,  "fry_kcal_pct": 0.5 },
+      { "country": "India",   "potato_kcal_pct": 2.0,  "fry_kcal_pct": 0.3 }
+    ],
+    "income_deciles": {
+      "country": "USA (representative)",
+      "note": "Nuanced: fast-food FREQUENCY rises with income, but lower-income diets draw a slightly higher SHARE of away-from-home calories from cheap fried potato (ERS: 16.4% vs 15.3%). Net: potato-calorie share falls gently with income; fry share is flatter, tilting slightly to the bottom decile via cheap retail frozen. Modeled 🔴.",
+      "deciles": [
+        { "d": 1,  "potato_pct": 4.6, "fry_pct": 2.4 },
+        { "d": 2,  "potato_pct": 4.3, "fry_pct": 2.3 },
+        { "d": 3,  "potato_pct": 4.0, "fry_pct": 2.2 },
+        { "d": 4,  "potato_pct": 3.8, "fry_pct": 2.1 },
+        { "d": 5,  "potato_pct": 3.6, "fry_pct": 2.0 },
+        { "d": 6,  "potato_pct": 3.4, "fry_pct": 2.0 },
+        { "d": 7,  "potato_pct": 3.2, "fry_pct": 1.9 },
+        { "d": 8,  "potato_pct": 3.0, "fry_pct": 1.9 },
+        { "d": 9,  "potato_pct": 2.7, "fry_pct": 1.8 },
+        { "d": 10, "potato_pct": 2.4, "fry_pct": 1.7 }
+      ]
+    }
   },
 
   "food_loss_waste_overlay": {

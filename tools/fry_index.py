@@ -52,18 +52,22 @@ def main() -> None:
     print("\n" + "=" * 68)
     print("FRY-FLATION — US McDonald's medium fries over time")
     print("=" * 68)
-    print(f"  {'year':>6}{'USD':>8}{'¢/cal':>8}   {'vs 2000':>9}")
-    base = s[0]["usd"]
+    base_year = ff.get("base_year", s[-1]["year"])
+    cpi_base = next((r["cpi_index"] for r in s if r["year"] == base_year), s[-1]["cpi_index"])
+    print(f"  {'year':>6}{'nominal$':>10}{'real$ (' + str(base_year) + ')':>14}{'¢/cal':>8}")
     for r in s:
+        real = r["usd"] * cpi_base / r["cpi_index"]
         ppc = r["usd"] * 100 / fcal
-        bar = "#" * round(r["usd"] / s[-1]["usd"] * 30)
-        print(f"  {r['year']:>6}{r['usd']:>8.2f}{ppc:>8.2f}   {(r['usd']/base-1)*100:>+8.0f}%  {bar}")
+        bar = "#" * round(r["usd"] / s[-1]["usd"] * 24)
+        print(f"  {r['year']:>6}{r['usd']:>10.2f}{real:>14.2f}{ppc:>8.2f}  {bar}")
     first, last = s[0], s[-1]
     yrs = last["year"] - first["year"]
+    real_first = first["usd"] * cpi_base / first["cpi_index"]
     print(f"\n  {first['year']}->{last['year']}: ${first['usd']:.2f} -> ${last['usd']:.2f} "
-          f"= {last['usd']/first['usd']:.1f}x nominal over {yrs} yrs.")
-    print(f"  A fry calorie went from {first['usd']*100/fcal:.2f} to "
-          f"{last['usd']*100/fcal:.2f} ¢ — the fry got dearer faster than general inflation.\n")
+          f"= {last['usd']/first['usd']:.1f}x NOMINAL over {yrs} yrs.")
+    print(f"  In real {base_year} dollars: ${real_first:.2f} -> ${last['usd']:.2f} "
+          f"= {last['usd']/real_first:.1f}x REAL — the fry got dearer even after inflation,")
+    print(f"  most of it since 2020.\n")
 
 
 if __name__ == "__main__":

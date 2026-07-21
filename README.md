@@ -21,6 +21,7 @@ Total global fresh-weight potato production, all varieties, all countries
 | **TPS (Taters/sec)** | **~79,000/s** | > the world's financial transactions/sec (🥔 > 💸) |
 | **PPC (cheapest fry cal)** | **0.24 ¢/cal** | Raw potato at home; fine-dining frites cost ~8× more |
 | **Fry Index** | **4.7× range** | A McD fry calorie costs 4.7× more in Zurich than Mumbai |
+| **CPI (Consumed Potato Index)** | **11 % → 2 %** | Potato's share of calories: Rwanda/Belarus ~11 %; fries: UK 2.5 % |
 | **Conscience Number** | **~45 % wasted** | Spuds lost field→fork (roots & tubers waste most) |
 
 ## MUSHT — Make Underutilized Spuds Have Taste
@@ -100,6 +101,14 @@ python3 tools/musht.py         # recompute MUSHT
 ```
 
 ## Status
+
+**Run 7 — the Consumed Potato Index (2026-07-20):** added **CPI** — potato's
+share of a country's calories, with a fries sub-share and US income deciles.
+Headline: **Rwanda/Belarus are most potato-dependent (~11 %) but the UK/US are
+most fry-dependent (2.5 %/2.0 %)** — staple vs fry culture; potato-calorie share
+**falls with income** (4.6 %→2.4 %). Also **real fry-flation** (2.1× after
+inflation, vs 3.9× nominal). New `tools/cpi.py`; dashboard CPI section (country
+bar + decile line) + real-dollar line on fry-flation.
 
 **Run 6 — the Fry Index & fry-flation (2026-07-20):** internationalised PPC — a
 McDonald's medium (320 cal) priced across countries (Big Mac Index style): **a fry

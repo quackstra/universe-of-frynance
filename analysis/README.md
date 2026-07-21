@@ -43,7 +43,9 @@ lost/wasted (range 25–60 %). See [waste_loss](waste_loss/REPORT.md).
 - [**PPC — Pennies Per Calorie**](deep-dives/ppc/REPORT.md) — where a fry calorie
   is cheapest (home ~0.24 ¢/cal; Five Guys beats McDonald's 2:1).
 - [**The Fry Index & fry-flation**](deep-dives/fry-index/REPORT.md) — PPC across
-  countries (4.7× Zurich vs Mumbai) and over time (~3.9× since 2000).
+  countries (4.7× Zurich vs Mumbai) and over time (3.9× nominal / 2.1× real).
+- [**CPI — the Consumed Potato Index**](deep-dives/consumed-potato-index/REPORT.md)
+  — potato & fry share of calories by country and US income decile.
 
 ## Capsules (to be written — inside-out)
 
