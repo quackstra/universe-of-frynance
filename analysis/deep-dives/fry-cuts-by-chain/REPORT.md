@@ -34,13 +34,35 @@ lines — the mileage is "if this tonnage were drawn out as one straight fry").
   Curly, waffle and crinkle add surface area without adding length, so their
   "miles" are notional — reported as straight-equivalent for comparability.
 
+## By restaurant tier (Run-3 expansion)
+
+Cut geometry has a strong "tier accent." The visible chains are only the short
+head — the **independent / non-chain tail is the largest single fry-volume tier
+and by far the most varied.**
+
+| Tier | Typical cut | Exemplars |
+|------|-------------|-----------|
+| QSR / limited-service | Straight dominant; signature exceptions | McDonald's (straight), Wendy's (natural-cut), **Chick-fil-A (waffle)**, **Arby's (curly)**, Sonic (tots) |
+| Fast casual | "Better fry" — fresh hand-cut / premium crinkle | Five Guys (fresh hand-cut), In-N-Out (fresh straight), **Shake Shack / Culver's (crinkle)**, Steak 'n Shake (shoestring) |
+| Casual dining / full-service | Steak fries, seasoned, crinkle | Red Robin (steak/crinkle, bottomless), Texas Roadhouse (steak fries), Chili's, Outback |
+| Fine dining / gastropub | Hand-cut pommes frites, triple-cooked, truffle | Belgian frites houses, steak-frites bistros, gastropubs |
+| **Independent / non-chain** | **Everything** — diner hand-cut & crinkle, chip-shop chips, street-vendor, pub wedges | diners, UK/IE chippies, food trucks, indie burger joints (~half of restaurant units) |
+
+**Key structural finding:** because independents are ~half of restaurant units
+and dominate global fry volume (street food, chip shops, diners), the *true*
+global cut mix is set by the long tail, not by the chains we can name. Chains
+anchor the recognisable signature cuts (waffle = Chick-fil-A, curly = Arby's);
+the tail fills in everything else. This mirrors the Universe of Movement
+"long-tail" finding for vehicle models.
+
 ## Method
 Cut shares are US-foodservice-weighted estimates anchored to (a) the straight-cut
-~48 % market share, (b) which cut each major chain serves, and (c) chain scale
-(system sales / unit counts). Applied to the global fries tonnage from the
+~48 % market share, (b) which cut each major chain/tier serves, and (c) chain
+scale (system sales / unit counts). Applied to the global fries tonnage from the
 [frozen fries capsule](../../processing/frozen_fries/REPORT.md). 🔴 — a true
 figure needs processor cut-mix data + chain-level fry volumes (the public-data
-wall). Reproduce: `python3 tools/musht.py` (prints the cut table).
+wall). See also the [fry-companions tracker](../fry-companions/REPORT.md).
+Reproduce: `python3 tools/musht.py` (prints the cut table).
 
 [mkt]: https://www.coherentmarketinsights.com/market-insight/french-fries-market-3093
 [ch]: https://chefstandards.com/fast-food-chains-fries/

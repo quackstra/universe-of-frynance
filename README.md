@@ -18,6 +18,7 @@ Total global fresh-weight potato production, all varieties, all countries
 | **MUSHT (idealized)** | **~3.84 billion miles of fry** | A single 0.75 cm fry, *past Pluto* |
 | **MUSHT (real)** | **~0.30 billion miles** | Only the ~7.9 % that actually becomes fries |
 | **Curly fry** | **~12 M miles** | ~26 round-trips to the Moon — mostly Arby's |
+| **TPS (Taters/sec)** | **~79,000/s** | > the world's financial transactions/sec (🥔 > 💸) |
 | **Conscience Number** | **~45 % wasted** | Spuds lost field→fork (roots & tubers waste most) |
 
 ## MUSHT — Make Underutilized Spuds Have Taste
@@ -97,6 +98,15 @@ python3 tools/musht.py         # recompute MUSHT
 ```
 
 ## Status
+
+**Run 3 — TPS, restaurant tiers & fry-companions tracker (2026-07-20):** added
+**[TPS — Taters Per Second](analysis/aggregate/TPS.md)** (~79,000/s annual +
+month-by-month, day-weighted-normalised, Nov peak / Jan trough; 🥔 > global
+finance 💸); expanded the fry deep dive to **restaurant tiers** including the
+independent/non-chain long tail; and launched the
+**[fry-companions tracker](analysis/deep-dives/fry-companions/REPORT.md)** (burger
+#1). New `tools/tps.py`; dashboard gains a TPS section with the monthly line chart
+and a companions chart.
 
 **Run 2 — country-weighted rebuild + fry-cut deep dive (2026-07-20):**
 country-weighted processing share (US 70 % · EU ~45 % · China 15 % · India 7 % ·

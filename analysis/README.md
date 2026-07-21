@@ -31,6 +31,15 @@ lost/wasted (range 25–60 %). See [waste_loss](waste_loss/REPORT.md).
 
 - [**The Big Number + MUSHT**](aggregate/BIG_NUMBER.md) — production, per-capita,
   and the miles-of-fry hero number.
+- [**TPS — Taters Per Second**](aggregate/TPS.md) — the rate number (~79,000/s),
+  annual + month-by-month; 🥔 > global finance 💸.
+
+## Deep dives
+
+- [**Fry cuts by geometry, chain & tier**](deep-dives/fry-cuts-by-chain/REPORT.md)
+  — straight/curly/waffle + QSR→fast-casual→casual→fine→independent tiers.
+- [**Fry companions tracker**](deep-dives/fry-companions/REPORT.md) — what's most
+  often sold with a fry (burger #1).
 
 ## Capsules (to be written — inside-out)
 

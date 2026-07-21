@@ -103,6 +103,7 @@ nav .nav-links a:hover{color:var(--text)}
     <li><a href="#leaderboard">Fates</a></li>
     <li><a href="#charts">Charts</a></li>
     <li><a href="#musht">MUSHT</a></li>
+    <li><a href="#tps">TPS</a></li>
     <li><a href="#insights">Insights</a></li>
   </ul>
 </div></nav>
@@ -110,7 +111,7 @@ nav .nav-links a:hover{color:var(--text)}
 <!-- HERO -->
 <section class="hero visible" id="hero">
   <div class="container" style="display:flex;flex-direction:column;align-items:center">
-    <div class="hero-badge">Open Research Project · Run 2 · 🥔🍟</div>
+    <div class="hero-badge">Open Research Project · Run 3 · 🥔🍟</div>
     <h1>Universe of Frynance</h1>
     <p class="tagline">What happens to every potato on Earth?</p>
     <div class="hero-numbers">
@@ -128,6 +129,11 @@ nav .nav-links a:hover{color:var(--text)}
         <div class="big-number waste mono">~<span id="cWaste">0</span>%</div>
         <div class="unit">wasted</div>
         <div class="sub">lost field→fork — the Conscience Number</div>
+      </div>
+      <div class="hero-stat">
+        <div class="big-number mono" style="color:#8BA43C">~<span id="cTPS">0</span>k</div>
+        <div class="unit">taters / sec</div>
+        <div class="sub">TPS — &gt; the world's financial transactions/sec</div>
       </div>
     </div>
     <div class="hero-explain">
@@ -182,6 +188,34 @@ nav .nav-links a:hover{color:var(--text)}
     <p class="dd-kicker" style="margin-top:26px"><b>Run 2 — miles of fry, by cut.</b> Straight rules (~72 %), but the fun lives in the tail: <b>🌀 curly fry ≈ 12 million miles a year — ~26 round-trips to the Moon — almost all of it Arby's.</b> Waffle (~15 M mi) is Chick-fil-A's signature and the fastest-growing cut. <span class="muted">(Straight-line-equivalent miles; curly/waffle aren't literal straight lines.)</span></p>
     <div class="chart-canvas-wrap" style="height:320px"><canvas id="cutBar"></canvas></div>
     <p class="dd-kicker" style="margin-top:26px">Reproduce it yourself: <span class="mono" style="color:var(--gold)">python3 tools/musht.py</span>. The mass-balance gate that keeps the fates summing to 100 %: <span class="mono" style="color:var(--gold)">python3 tools/massbalance.py</span>.</p>
+    <p class="dd-kicker" style="margin-top:26px"><b>Run 3 — cut by restaurant tier.</b> The chains are the short head; the <b>independent / non-chain tail</b> (~half of restaurant units — diners, chippies, food trucks, street vendors) is the largest, most varied fry-volume tier. Chains anchor the signatures — <b>waffle = Chick-fil-A, curly = Arby's, crinkle = Shake Shack / Culver's, steak fries = Red Robin, hand-cut = Five Guys</b> — the tail fills in everything else.</p>
+    <div class="insights-grid" style="margin-top:22px">
+      <div class="insight-card"><div class="insight-icon">🍔</div><p><b>Fry companions tracker:</b> the fry is the great supporting side. What shares its plate, ranked →</p></div>
+    </div>
+    <div class="chart-canvas-wrap" style="height:300px;margin-top:16px"><canvas id="companionBar"></canvas></div>
+    <p class="muted" style="font-size:.82rem;margin-top:8px">Near-universal partners: a soda, and ketchup (mayo in Belgium, malt vinegar in the UK, gravy+curds = poutine in Canada).</p>
+  </div>
+</div></section>
+
+<!-- TPS -->
+<section id="tps"><div class="container">
+  <h2>TPS — Taters Per Second</h2>
+  <p class="section-subtitle">The rate metric: how fast Earth grows potatoes, counted as whole tubers (avg ~150 g). A deliberate nod to Universe of Finance's TPS — transactions per second.</p>
+  <div class="dd">
+    <span class="dd-badge">The Rate Number</span>
+    <p class="dd-kicker">Earth produces <b>~79,000 taters every second</b> — 2.5 trillion a year. At that rate the planet grows potatoes <b>faster than the entire global financial system settles transactions</b> (~73,750/sec): <b>🥔 &gt; 💸</b>, about 1.07×.</p>
+    <div class="dd-grid">
+      <div>
+        <div class="dd-stat"><span class="label">TPS — annual average</span><span class="value" style="color:#8BA43C">79,220 / s</span></div>
+        <div class="dd-stat"><span class="label">Taters per year</span><span class="value">2.50 trillion</span></div>
+        <div class="dd-stat"><span class="label">Peak month — November</span><span class="value" style="color:var(--accent)">89,216 / s</span></div>
+        <div class="dd-stat"><span class="label">Trough month — January</span><span class="value">69,821 / s</span></div>
+        <div class="dd-stat"><span class="label">Peak driver</span><span class="value">Thanksgiving mash</span></div>
+        <div class="dd-stat"><span class="label">vs global finance TPS</span><span class="value">~1.07×</span></div>
+      </div>
+      <div class="chart-canvas-wrap" style="height:340px"><canvas id="tpsLine"></canvas></div>
+    </div>
+    <p class="dd-kicker" style="margin-top:26px"><b>Two views, as asked:</b> a flat <b>annual-average</b> TPS, and a <b>month-by-month</b> TPS built from a Northern-Hemisphere consumption-seasonality index — normalised so the twelve months reconcile exactly to the annual figure. Taters-per-second peaks at the <b>winter holidays</b> and bottoms out in the <b>post-holiday January dip</b>, with a summer QSR-fry bump. Reproduce: <span class="mono" style="color:var(--gold)">python3 tools/tps.py</span>.</p>
   </div>
 </div></section>
 
@@ -193,7 +227,7 @@ nav .nav-links a:hover{color:var(--text)}
 </div></section>
 
 <footer><div class="container">
-  <p>Potato mass balance · 6 fates + fry-cuts deep dive · Run 2 · 2026-07-20</p>
+  <p>Potato mass balance · 6 fates · MUSHT · TPS · fry-cuts &amp; companions · Run 3 · 2026-07-20</p>
   <p><a href="https://github.com/quackstra/universe-of-frynance" target="_blank" rel="noopener">View the full research on GitHub</a> &middot; <a href="analysis/aggregate/BIG_NUMBER.md">The Big Number</a> &middot; sister to <a href="https://quackstra.github.io/universe-of-finance">Finance</a> &amp; <a href="https://quackstra.github.io/universe-of-movement">Movement</a></p>
   <p style="margin-top:14px">&copy; 2026 Universe of Frynance &middot; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
 </div></footer>
@@ -222,9 +256,20 @@ const CUTS=[
   {t:"Curly (Arby's)",mi:12.2,c:"#D64545"},
 ];
 const MUSHT=[{t:"Idealized (100% of crop)",v:3.84,c:"#F0A830"},{t:"Real (fries only, 7.9%)",v:0.30,c:"#A0703C"}];
+const COMPANIONS=[
+  {t:"🍔 Burger / cheeseburger",p:38},{t:"🍗 Chicken (sandwich/tenders)",p:24},
+  {t:"🥪 Sandwich / wrap / gyro",p:12},{t:"🐟 Fish (fish & chips)",p:8},
+  {t:"🌭 Hot dog",p:7},{t:"🍖 Wings",p:5},{t:"🥩 Steak (frites)",p:3},{t:"🍟 Solo / other",p:3},
+];
+const TPS_MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const TPS_VALS=[69821,72925,75252,76804,78355,80683,82234,81458,78355,79907,89216,85337];
+const TPS_ANNUAL=79220;
 const INSIGHTS=[
   {i:"🍟",t:"<b>Only ~1 potato in 13</b> becomes a fry. Fries loom huge culturally but are just <b>~8%</b> of what Earth grows."},
   {i:"🌀",t:"<b>Curly fry ≈ 12 million miles</b> a year — ~26 round-trips to the Moon — and it's <b>almost all Arby's</b>. Waffle (~15 M mi) is Chick-fil-A."},
+  {i:"⚡",t:"<b>~79,000 Taters Per Second.</b> Earth grows potatoes faster than the whole world settles financial transactions (~73,750/sec) — 🥔 &gt; 💸."},
+  {i:"🦃",t:"<b>Taters-per-second peaks in November</b> (~89k/sec) on Thanksgiving mash, and bottoms out in the January post-holiday dip (~70k/sec)."},
+  {i:"🍔",t:"<b>The burger is the fry's soulmate</b> — the #1 companion (~38% of fry orders), ahead of chicken (~24%). The fry is the great supporting side."},
   {i:"🌏",t:"<b>China + India grow ~40%</b> of the world's potatoes but process only 15% / 7% — that's why the global processed share is only ~17%."},
   {i:"🥔",t:"<b>Fresh still wins.</b> Despite the QSR image, ~<b>49%</b> of potatoes are sold and cooked whole. In the US, though, ~70% is processed."},
   {i:"🗑️",t:"<b>The bin rivals the plate.</b> ~45% of potatoes are lost field→fork (~169 Mt) — roots & tubers waste more than any crop group."},
@@ -270,6 +315,16 @@ function makeCharts(){
     data:{labels:CUTS.map(d=>d.t),datasets:[{label:"Million miles of fry / yr",data:CUTS.map(d=>d.mi),backgroundColor:CUTS.map(d=>d.c)}]},
     options:{indexAxis:"y",plugins:{legend:{display:false},title:{display:true,text:"Real MUSHT by cut — straight-line-equivalent (M miles/yr)",color:"#fbf7ef"}},
       scales:{x:{title:{display:true,text:"million miles / yr"},grid:{color:"#332a1c"}},y:{grid:{display:false}}},maintainAspectRatio:false}});
+  new Chart(document.getElementById("companionBar"),{type:"bar",
+    data:{labels:COMPANIONS.map(d=>d.t),datasets:[{label:"Attach share (%)",data:COMPANIONS.map(d=>d.p),backgroundColor:"#F58518"}]},
+    options:{indexAxis:"y",plugins:{legend:{display:false},title:{display:true,text:"Most-frequent fry companions (share of fry-accompanied orders)",color:"#fbf7ef"}},
+      scales:{x:{title:{display:true,text:"% of fry orders"},grid:{color:"#332a1c"}},y:{grid:{display:false}}},maintainAspectRatio:false}});
+  new Chart(document.getElementById("tpsLine"),{type:"line",
+    data:{labels:TPS_MONTHS,datasets:[
+      {label:"Monthly TPS",data:TPS_VALS,borderColor:"#8BA43C",backgroundColor:"rgba(139,164,60,.14)",fill:true,tension:.35,pointRadius:4,pointBackgroundColor:TPS_MONTHS.map((m,i)=>i===10?"#F0A830":"#8BA43C")},
+      {label:"Annual average",data:TPS_MONTHS.map(()=>TPS_ANNUAL),borderColor:"#b7a888",borderDash:[6,5],pointRadius:0,fill:false}]},
+    options:{plugins:{legend:{position:"bottom",labels:{font:{size:11}}},tooltip:{callbacks:{afterLabel:c=>c.dataIndex===10?"Thanksgiving peak":c.dataIndex===0?"Post-holiday trough":""}}},
+      scales:{y:{title:{display:true,text:"taters / second"},grid:{color:"#332a1c"}},x:{grid:{color:"#332a1c"}}},maintainAspectRatio:false}});
   // Sankey: production -> fates -> processing -> fries
   const sk=document.getElementById("sankey");
   if(sk && Chart.registry.controllers.get("sankey")){
@@ -297,7 +352,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.targe
 document.querySelectorAll("section").forEach(s=>io.observe(s));
 window.addEventListener("scroll",()=>{document.getElementById("mainNav").classList.toggle("visible",window.scrollY>600)});
 window.addEventListener("load",()=>{
-  animate("cProd",375,0);animate("cMusht",3.84,2);animate("cWaste",45,0);
+  animate("cProd",375,0);animate("cMusht",3.84,2);animate("cWaste",45,0);animate("cTPS",79,0);
   makeCharts();
 });
 </script>

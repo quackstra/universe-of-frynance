@@ -50,6 +50,48 @@
     ]
   },
 
+  "tps": {
+    "note": "Taters Per Second — potatoes produced per second (production basis). Cross-universe nod to Universe of Finance's TPS (transactions/second).",
+    "avg_potato_weight_g": { "value": 150, "range_g": { "low": 130, "high": 180 }, "source": "global-average tuber across all sizes/varieties; a US medium russet is ~170-180 g but developing-country potatoes run smaller", "url": "https://www.arhfoundation.org/weight-average-potato-grams-guide", "confidence": "medium" },
+    "seconds_per_year": 31557600,
+    "monthly_index": {
+      "note": "Northern-Hemisphere-weighted consumption seasonality (multipliers; tool normalises the day-weighted mean to 1.0 so the 12 months reconcile to the annual TPS). Peaks at the winter holidays, dips post-holiday, summer QSR-fry bump.",
+      "confidence": "low",
+      "url": "https://www.thomasnet.com/insights/thanksgiving-supply-chain/",
+      "values": { "Jan": 0.90, "Feb": 0.94, "Mar": 0.97, "Apr": 0.99, "May": 1.01, "Jun": 1.04, "Jul": 1.06, "Aug": 1.05, "Sep": 1.01, "Oct": 1.03, "Nov": 1.15, "Dec": 1.10 },
+      "drivers": { "Nov": "Thanksgiving — 75% of people eat potatoes; ~214M lb moved pre-holiday", "Dec": "Christmas / holiday mash", "Jan": "post-holiday dip + diets", "Jul": "summer QSR fry peak (travel, cookouts)", "Aug": "back-to-school processed-potato uptick" }
+    }
+  },
+
+  "restaurant_tiers": {
+    "note": "Fry-cut character by restaurant tier. The independent/non-chain tail is the largest single fry-volume tier and the most varied — the visible chains are the short head. Shares 🔴.",
+    "confidence": "low",
+    "tiers": [
+      { "slug": "qsr", "name": "QSR / limited-service", "typical_cut": "straight/shoestring dominant; signature exceptions (waffle, curly, tots)", "exemplars": "McDonald's (straight), Burger King (straight), Wendy's (natural-cut), Chick-fil-A (waffle), Arby's (curly), Sonic (tots/crinkle)", "url": "https://chefstandards.com/fast-food-chains-fries/" },
+      { "slug": "fast_casual", "name": "Fast casual", "typical_cut": "'better fry' — fresh hand-cut or premium crinkle", "exemplars": "Five Guys (fresh hand-cut), In-N-Out (fresh straight), Shake Shack (crinkle), Culver's (crinkle), Steak 'n Shake (shoestring), Whataburger (straight), Wingstop (thin straight)", "url": "https://www.mashed.com/2099418/fast-food-chains-highest-quality-french-fries/" },
+      { "slug": "casual_dining", "name": "Casual dining / full-service", "typical_cut": "steak fries, seasoned, crinkle; sides-menu variety", "exemplars": "Red Robin (steak/crinkle, bottomless), Applebee's, Chili's, Texas Roadhouse (steak fries), Outback", "url": "https://www.eatthis.com/chain-restaurants-best-cheeseburgers-fries/" },
+      { "slug": "fine_dining", "name": "Fine dining / gastropub", "typical_cut": "hand-cut pommes frites, triple-cooked chips, truffle fries", "exemplars": "Belgian-style frites houses, steak-frites bistros, gastropubs", "url": "https://www.freddys.com/blog/types-of-french-fries" },
+      { "slug": "independent", "name": "Independent / non-chain (the long tail)", "typical_cut": "everything — diner hand-cut & crinkle, chip-shop chips, street-vendor, pub wedges; the widest cut variety of any tier", "exemplars": "diners, UK/IE chippies, food trucks, street vendors, indie burger joints (~half of restaurant units, majority of global fry volume)", "url": "https://en.wikipedia.org/wiki/Fast_casual_restaurant" }
+    ]
+  },
+
+  "fry_companions": {
+    "note": "Tracker — food items most frequently sold WITH a fry (share of fry-accompanied orders). v1 estimates 🔴. Beverage (soda) is near-universal; ketchup is the #1 dip.",
+    "confidence": "low",
+    "url": "https://icebergdriveinn.com/blogs/news/why-a-burger-fries-and-soda-make-the-perfect-combo",
+    "items": [
+      { "item": "Burger / cheeseburger", "attach_pct": 38 },
+      { "item": "Chicken (sandwich / tenders / nuggets)", "attach_pct": 24 },
+      { "item": "Sandwich / wrap / gyro", "attach_pct": 12 },
+      { "item": "Fish (fish & chips)", "attach_pct": 8 },
+      { "item": "Hot dog", "attach_pct": 7 },
+      { "item": "Wings", "attach_pct": 5 },
+      { "item": "Steak (steak frites)", "attach_pct": 3 },
+      { "item": "Solo / other", "attach_pct": 3 }
+    ],
+    "ubiquitous_pairings": { "beverage": "soda/soft drink (near-universal in combos)", "top_dip": "ketchup", "regional_dips": "mayo (BE/NL), malt vinegar (UK/IE), gravy+cheese=poutine (CA), aioli, ranch" }
+  },
+
   "food_loss_waste_overlay": {
     "note": "Cross-cutting overlay along field->consumer chain. NOT summed into tier1_fates (would double-count with the FBS 'losses' line). Reported as the Conscience Number.",
     "chain_loss_pct": { "value": 45, "source": "Roots & tubers have the highest FLW of any commodity group (>25%); regional range 33% (N.Africa/W&C Asia) to 60% (N.America/Oceania). Potato harvest often 'reduced by half from field to fork'. Fresh ~30% disposed vs processing ~4-5%.", "url": "https://www.tabledebates.org/research-library/waste-potato-supply-chain-potato-harvest-reduced-half-field-fork", "confidence": "medium" },
