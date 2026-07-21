@@ -1,35 +1,39 @@
 # Last Session — Universe of Frynance
 
-## Run 9 — the Fry Bill / induced supply chain (2026-07-20)
+## Run 10 — the Fry Economy / total economic impact (2026-07-20)
 
-Quantified the demand the fry induces and the sector inputs it takes. Live at
+Put a dollar and a headcount on the whole argument. Live at
 quackstra.github.io/universe-of-frynance.
 
-### Induced potato demand (`tools/fry_bill.py`, `fry_bill` block, capsule)
-- Counterfactual: without the fry, ~40% of the 29.8 Mt fries stream reverts to
-  fresh boiled; ~60% (~17.9 Mt) vanishes (income-elastic demand the fry sustains,
-  MCE-PF). **~18 Mt = ~4.8% of ALL world potato production exists only because we
-  fry.** Modeled split 🔴 (sensitivity: 25% revert -> 22 Mt, 55% -> 13 Mt).
-
-### The sector bill (per 14.9 Mt finished fries, ~135B servings)
-- Frying oil 1.94 Mt (~0.9% of world veg oil ~220 Mt) [headline]
-- Salt 0.18 Mt · Energy 44.7 TWh (~1.4x Ireland) · Water 8.6 km3 (mostly green)
-- Labor 1.8 B hours = ~900,000 FTE jobs [headline]
-- Packaging 2.0 Mt · CO2e 67 Mt (small-nation footprint)
-- Intensities: oil 13% finished wt, salt 1.2%, water 574 L/kg (waterfootprint.org),
-  CO2e 4.5 kg/kg, energy 3 kWh/kg, labor 48 s/serving, packaging 15 g/serving.
+### The Fry Economy (`tools/fry_economy.py`, `fry_economy` block, capsule)
+- **Output:** final demand (consumer fry spend) ~$150B x output multiplier 1.9 =
+  **~$285B total economic output**; value-added (GDP) ~$128B (45%). Frozen-fry
+  manufacturing market ~$26B (65% foodservice) sits inside the $150B.
+- **Jobs pyramid:** direct 0.90M (fry/serve/process) + indirect 0.90M (suppliers)
+  + induced 0.45M (wage spending) = **~2.25M total jobs** (emp multiplier ~2.5).
+- **Downstream support (indirect) jobs:** potato farming 300k · cold chain 200k ·
+  distribution/retail 150k · packaging 80k · veg oil 70k · equipment 60k ·
+  salt/seasonings 40k = 900k.
+- Anchors: fries market $18-29B (Fortune/Mordor/etc.); food-sector Type-II
+  multipliers (~3 jobs/direct for food mfg, blended to 2.5). Modeled 🔴 — softest
+  input is the $1.2 blended serving price -> $150B final demand.
 
 ### Dashboard
-Fry Bill section: sector stat grid + induced-demand doughnut (revert vs induced) +
-"fry's share of each global sector" bar. 2 insight cards, nav link, Run 9 badge.
+Fry Economy section: headline stat grid + jobs doughnut (direct/indirect/induced)
++ supplier-jobs bar. Insight card, nav link, Run 10 badge/footer.
 
-## Full metric stack (9 runs)
+### The full stack now connects end to end
+MCE-PF (processing beats Engel's law) -> Fry Bill (18 Mt induced demand + input
+bill) -> Fry Economy ($285B / 2.25M jobs). The narrative closes.
+
+## Full metric stack (10 runs)
 Big Number · per-capita · MUSHT · TPS · PPC · Fry Index (+fry-flation) · CPI ·
-MCE-PF/VAM · **Fry Bill** · Conscience. Tools: massbalance, musht, tps, ppc,
-fry_index, cpi, vam, fry_bill, scout. Gate PASS every run.
+MCE-PF/VAM · Fry Bill · **Fry Economy** · Conscience. Tools: massbalance, musht,
+tps, ppc, fry_index, cpi, vam, fry_bill, fry_economy, scout. Gate PASS every run.
 
-## Next (Run 10 candidates)
-- Estimate ε_fry/ε_potato directly from CPI decile curves (close MCE-PF loop).
-- Fry Bill: split each sector by farm/processing/foodservice/consumer stage;
-  ground labor with foodservice employment data; add cooking-oil waste/UCO stream.
-- PPP Fry Index; real FAO FBS DES for CPI; processor tonnages; dining PPC rows.
+## Next (Run 11 candidates)
+- Ground final demand bottom-up (per-country fry spend) to firm the $150B.
+- Split Fry Bill + Fry Economy by supply-chain stage (farm/proc/foodservice/
+  consumer).
+- Close MCE-PF loop: estimate elasticities from the CPI decile curves.
+- Still-open: PPP Fry Index; FAO FBS DES for CPI; processor tonnages; dining PPC.

@@ -108,6 +108,7 @@ nav .nav-links a:hover{color:var(--text)}
     <li><a href="#cpi">CPI</a></li>
     <li><a href="#valueadd">Value-Add</a></li>
     <li><a href="#frybill">Fry Bill</a></li>
+    <li><a href="#fryeconomy">Economy</a></li>
     <li><a href="#insights">Insights</a></li>
   </ul>
 </div></nav>
@@ -115,7 +116,7 @@ nav .nav-links a:hover{color:var(--text)}
 <!-- HERO -->
 <section class="hero visible" id="hero">
   <div class="container" style="display:flex;flex-direction:column;align-items:center">
-    <div class="hero-badge">Open Research Project · Run 9 · 🥔🍟</div>
+    <div class="hero-badge">Open Research Project · Run 10 · 🥔🍟</div>
     <h1>Universe of Frynance</h1>
     <p class="tagline">What happens to every potato on Earth?</p>
     <div class="hero-numbers">
@@ -302,6 +303,29 @@ nav .nav-links a:hover{color:var(--text)}
   </div>
 </div></section>
 
+<!-- FRY ECONOMY -->
+<section id="fryeconomy"><div class="container">
+  <h2>The Fry Economy — total economic impact</h2>
+  <p class="section-subtitle">Everything the project has built points here. What is the entire economic footprint of the effort to fry potatoes and keep people eating them as incomes rise? Direct + indirect (suppliers) + induced (worker spending).</p>
+  <div class="dd">
+    <span class="dd-badge">The Bottom Line</span>
+    <p class="dd-kicker">Keeping the world eating potatoes as fries is a <b>~$285 billion</b> economic engine contributing <b>~$128 B of GDP</b> and employing <b>~2.25 million people</b> — a mid-large city's entire population, all working so an inferior good stays desirable as incomes rise.</p>
+    <div class="dd-grid">
+      <div>
+        <div class="dd-stat"><span class="label">Consumer fry spend (final demand)</span><span class="value">$150 B</span></div>
+        <div class="dd-stat"><span class="label">Total economic output (×1.9)</span><span class="value" style="color:var(--accent)">$285 B</span></div>
+        <div class="dd-stat"><span class="label">GDP / value-added</span><span class="value">$128 B</span></div>
+        <div class="dd-stat"><span class="label">Direct jobs</span><span class="value">0.90 M</span></div>
+        <div class="dd-stat"><span class="label">+ Indirect + Induced</span><span class="value">1.35 M</span></div>
+        <div class="dd-stat"><span class="label">TOTAL jobs (×2.5)</span><span class="value" style="color:var(--accent)">~2.25 M</span></div>
+      </div>
+      <div class="chart-canvas-wrap" style="height:300px"><canvas id="fryEconJobs"></canvas></div>
+    </div>
+    <p class="dd-kicker" style="margin-top:26px"><b>Downstream support jobs.</b> Each direct fry job pulls ~1 supplier job and ~0.5 induced job into being — the farm, the freezer truck, the oil refinery, the box factory. Reproduce: <span class="mono" style="color:var(--gold)">python3 tools/fry_economy.py</span>.</p>
+    <div class="chart-canvas-wrap" style="height:300px"><canvas id="fryEconSuppliers"></canvas></div>
+  </div>
+</div></section>
+
 <!-- INSIGHTS -->
 <section id="insights"><div class="container">
   <h2>Key Insights</h2>
@@ -310,7 +334,7 @@ nav .nav-links a:hover{color:var(--text)}
 </div></section>
 
 <footer><div class="container">
-  <p>Potato mass balance · 6 fates · MUSHT · TPS · PPC · Fry Index · CPI · MCE-PF/VAM · Fry Bill · Run 9 · 2026-07-20</p>
+  <p>Potato mass balance · MUSHT · TPS · PPC · Fry Index · CPI · MCE-PF/VAM · Fry Bill · Fry Economy · Run 10 · 2026-07-20</p>
   <p><a href="https://github.com/quackstra/universe-of-frynance" target="_blank" rel="noopener">View the full research on GitHub</a> &middot; <a href="analysis/aggregate/BIG_NUMBER.md">The Big Number</a> &middot; sister to <a href="https://quackstra.github.io/universe-of-finance">Finance</a> &amp; <a href="https://quackstra.github.io/universe-of-movement">Movement</a></p>
   <p style="margin-top:14px">&copy; 2026 Universe of Frynance &middot; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
 </div></footer>
@@ -380,6 +404,12 @@ const FRYBILL_WORLD=[
   {s:"Water (% freshwater use)",v:0.21,c:"#72B7B2"},{s:"Energy (% world electricity)",v:0.15,c:"#E8B84B"},
   {s:"CO₂e (% global emissions)",v:0.13,c:"#D64545"},
 ];
+const FRYECON_JOBS=[{l:"Direct (fry/serve/process)",v:0.90,c:"#F58518"},{l:"Indirect (suppliers)",v:0.90,c:"#A0703C"},{l:"Induced (wage spending)",v:0.45,c:"#8BA43C"}];
+const FRYECON_SUPPLIERS=[
+  {s:"Potato farming & storage",v:300},{s:"Cold chain, freight & logistics",v:200},
+  {s:"Distribution & retail support",v:150},{s:"Packaging",v:80},
+  {s:"Vegetable oil production",v:70},{s:"Equipment (fryers/freezers)",v:60},{s:"Salt & seasonings",v:40},
+];
 const INSIGHTS=[
   {i:"🍟",t:"<b>Only ~1 potato in 13</b> becomes a fry. Fries loom huge culturally but are just <b>~8%</b> of what Earth grows."},
   {i:"🌀",t:"<b>Curly fry ≈ 12 million miles</b> a year — ~26 round-trips to the Moon — and it's <b>almost all Arby's</b>. Waffle (~15 M mi) is Chick-fil-A."},
@@ -396,6 +426,7 @@ const INSIGHTS=[
   {i:"🚜",t:"<b>The farmer gets ~5¢ of a $3.56 fry</b> (~1.4%). A QSR fry is worth ~74× the farm-gate potato inside it; fine-dining frites ~114×."},
   {i:"🌱",t:"<b>~18 Mt of potatoes (~4.8% of world production) exist only because we fry</b> — income-elastic demand that would vanish if the fry didn't."},
   {i:"🛢️",t:"<b>Frying the world burns ~0.9% of all vegetable oil humanity presses</b> (~1.9 Mt) and sustains <b>~900,000 full-time jobs</b> — the fry's induced supply chain."},
+  {i:"💵",t:"<b>The fry economy is ~$285B and ~2.25M jobs.</b> Consumer fry spend (~$150B) supports a supply chain from farm to freezer truck to box factory — all to keep an inferior good on richer plates."},
   {i:"🌏",t:"<b>China + India grow ~40%</b> of the world's potatoes but process only 15% / 7% — that's why the global processed share is only ~17%."},
   {i:"🥔",t:"<b>Fresh still wins.</b> Despite the QSR image, ~<b>49%</b> of potatoes are sold and cooked whole. In the US, though, ~70% is processed."},
   {i:"🗑️",t:"<b>The bin rivals the plate.</b> ~45% of potatoes are lost field→fork (~169 Mt) — roots & tubers waste more than any crop group."},
@@ -491,6 +522,13 @@ function makeCharts(){
     data:{labels:FRYBILL_WORLD.map(d=>d.s),datasets:[{label:"% of the relevant global total",data:FRYBILL_WORLD.map(d=>d.v),backgroundColor:FRYBILL_WORLD.map(d=>d.c)}]},
     options:{indexAxis:"y",plugins:{legend:{display:false},title:{display:true,text:"The fry's share of each global sector (%)",color:"#fbf7ef"},tooltip:{callbacks:{label:c=>` ${c.parsed.x}% of its global total`}}},
       scales:{x:{title:{display:true,text:"% of the relevant world total"},grid:{color:"#332a1c"}},y:{grid:{display:false}}},maintainAspectRatio:false}});
+  new Chart(document.getElementById("fryEconJobs"),{type:"doughnut",
+    data:{labels:FRYECON_JOBS.map(d=>d.l),datasets:[{data:FRYECON_JOBS.map(d=>d.v),backgroundColor:FRYECON_JOBS.map(d=>d.c),borderColor:"#14100a",borderWidth:2}]},
+    options:{plugins:{legend:{position:"bottom",labels:{padding:10,font:{size:11}}},title:{display:true,text:"~2.25M jobs: direct + indirect + induced",color:"#fbf7ef"},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.parsed}M jobs`}}},cutout:"55%",maintainAspectRatio:false}});
+  new Chart(document.getElementById("fryEconSuppliers"),{type:"bar",
+    data:{labels:FRYECON_SUPPLIERS.map(d=>d.s),datasets:[{label:"Support jobs (thousands)",data:FRYECON_SUPPLIERS.map(d=>d.v),backgroundColor:"#A0703C"}]},
+    options:{indexAxis:"y",plugins:{legend:{display:false},title:{display:true,text:"Downstream support (indirect) jobs by supplier sector — thousands",color:"#fbf7ef"}},
+      scales:{x:{title:{display:true,text:"thousand jobs"},grid:{color:"#332a1c"}},y:{grid:{display:false}}},maintainAspectRatio:false}});
   // Sankey: production -> fates -> processing -> fries
   const sk=document.getElementById("sankey");
   if(sk && Chart.registry.controllers.get("sankey")){

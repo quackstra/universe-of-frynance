@@ -52,6 +52,9 @@ lost/wasted (range 25–60 %). See [waste_loss](waste_loss/REPORT.md).
 - [**The Fry Bill (induced supply chain)**](deep-dives/fry-bill/REPORT.md) —
   potatoes existing only because we fry (~18 Mt) + the sector input bill (oil,
   salt, energy, water, labor, packaging, CO₂e).
+- [**The Fry Economy (total economic impact)**](deep-dives/fry-economy/REPORT.md)
+  — ~$285 B output, ~$128 B GDP, ~2.25 M jobs (direct + indirect + induced), with
+  a downstream supplier-jobs breakdown.
 
 ## Capsules (to be written — inside-out)
 

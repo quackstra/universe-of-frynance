@@ -262,6 +262,26 @@
     ]
   },
 
+  "fry_economy": {
+    "note": "The Fry Economy — the total economic impact of the effort to fry potatoes and keep people eating them as incomes rise. Direct + indirect (suppliers) + induced (worker spending), IMPLAN/Type-II style.",
+    "confidence": "low",
+    "final_demand_usd_b": { "value": 150, "source": "~135B servings x ~$1.2 blended consumer price; frozen-fry manufacturing market alone ~$26B (65% foodservice) sits inside this", "url": "https://www.fortunebusinessinsights.com/french-fries-market-107372", "confidence": "low" },
+    "output_multiplier": { "value": 1.9, "source": "typical food-sector Type-II output multiplier", "url": "https://support.implan.com/hc/en-us/articles/18944332362523-Economic-Effects-Multipliers" },
+    "value_added_share": { "value": 0.45, "note": "value-added (GDP) as a share of total output" },
+    "direct_jobs": { "value": 900000, "source": "frying + serving + processing labor (~1.8B hrs / 2000, from the Fry Bill)", "confidence": "low" },
+    "employment_multiplier": { "value": 2.5, "source": "food manufacturing ~3 total jobs/direct; blended down for the service-heavy mix", "url": "https://blog.implan.com/understanding-implan-effects" },
+    "induced_jobs": { "value": 450000, "note": "jobs from direct+indirect workers spending their wages" },
+    "supplier_jobs": [
+      { "sector": "Potato farming & storage (for fries)", "jobs": 300000 },
+      { "sector": "Cold chain, freight & logistics",      "jobs": 200000 },
+      { "sector": "Distribution & retail support",         "jobs": 150000 },
+      { "sector": "Packaging",                             "jobs": 80000 },
+      { "sector": "Vegetable oil production",              "jobs": 70000 },
+      { "sector": "Equipment (fryers, freezers)",          "jobs": 60000 },
+      { "sector": "Salt, seasonings & other inputs",       "jobs": 40000 }
+    ]
+  },
+
   "food_loss_waste_overlay": {
     "note": "Cross-cutting overlay along field->consumer chain. NOT summed into tier1_fates (would double-count with the FBS 'losses' line). Reported as the Conscience Number.",
     "chain_loss_pct": { "value": 45, "source": "Roots & tubers have the highest FLW of any commodity group (>25%); regional range 33% (N.Africa/W&C Asia) to 60% (N.America/Oceania). Potato harvest often 'reduced by half from field to fork'. Fresh ~30% disposed vs processing ~4-5%.", "url": "https://www.tabledebates.org/research-library/waste-potato-supply-chain-potato-harvest-reduced-half-field-fork", "confidence": "medium" },

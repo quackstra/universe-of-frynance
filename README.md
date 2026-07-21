@@ -24,6 +24,7 @@ Total global fresh-weight potato production, all varieties, all countries
 | **CPI (Consumed Potato Index)** | **11 % → 2 %** | Potato's share of calories: Rwanda/Belarus ~11 %; fries: UK 2.5 % |
 | **MCE-PF / VAM** | **+0.5 · 74×** | Frying adds ~+0.5 income-elasticity; a QSR fry is ~74× the farm potato |
 | **Fry Bill (induced)** | **~18 Mt · 0.9 % oil** | Potatoes existing only because we fry; + ~900k jobs, 67 Mt CO₂e |
+| **Fry Economy** | **~$285 B · 2.25 M jobs** | Total economic impact (direct+indirect+induced) of frying the world |
 | **Conscience Number** | **~45 % wasted** | Spuds lost field→fork (roots & tubers waste most) |
 
 ## MUSHT — Make Underutilized Spuds Have Taste
@@ -103,6 +104,15 @@ python3 tools/musht.py         # recompute MUSHT
 ```
 
 ## Status
+
+**Run 10 — the Fry Economy / total economic impact (2026-07-20):** put a dollar
+and a headcount on the whole thing. The effort to fry potatoes and keep people
+eating them as incomes rise is a **~$285 B economic engine (~$128 B GDP)
+employing ~2.25 M people** — direct (0.9 M) + indirect suppliers (0.9 M) + induced
+(0.45 M), via standard food-sector Type-II multipliers. Includes a downstream
+support-jobs breakdown (farming, cold chain, oil, packaging, equipment…). New
+`tools/fry_economy.py` + [deep dive](analysis/deep-dives/fry-economy/REPORT.md) +
+dashboard section.
 
 **Run 9 — the Fry Bill / induced supply chain (2026-07-20):** estimated the
 potato demand that exists *only* because we fry (**~18 Mt, ~4.8 % of world
