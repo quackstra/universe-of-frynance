@@ -20,6 +20,7 @@ Total global fresh-weight potato production, all varieties, all countries
 | **Curly fry** | **~12 M miles** | ~26 round-trips to the Moon — mostly Arby's |
 | **TPS (Taters/sec)** | **~79,000/s** | > the world's financial transactions/sec (🥔 > 💸) |
 | **PPC (cheapest fry cal)** | **0.24 ¢/cal** | Raw potato at home; fine-dining frites cost ~8× more |
+| **Fry Index** | **4.7× range** | A McD fry calorie costs 4.7× more in Zurich than Mumbai |
 | **Conscience Number** | **~45 % wasted** | Spuds lost field→fork (roots & tubers waste most) |
 
 ## MUSHT — Make Underutilized Spuds Have Taste
@@ -99,6 +100,13 @@ python3 tools/musht.py         # recompute MUSHT
 ```
 
 ## Status
+
+**Run 6 — the Fry Index & fry-flation (2026-07-20):** internationalised PPC — a
+McDonald's medium (320 cal) priced across countries (Big Mac Index style): **a fry
+calorie costs ~4.7× more in Zurich than Mumbai** (0.41→1.93 ¢/cal). Plus
+**fry-flation** — the US McD fry is up **~3.9× since 2000**, dearer per calorie
+than general inflation. New `tools/fry_index.py` + [deep dive](analysis/deep-dives/fry-index/REPORT.md)
++ dashboard (country bar + time series).
 
 **Run 5 — PPC: Pennies Per Calorie (2026-07-20):** added the value metric —
 where a fry calorie is cheapest to buy. **Home wins (~0.24 ¢/cal), ~8× cheaper

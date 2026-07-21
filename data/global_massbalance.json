@@ -145,6 +145,41 @@
     ]
   },
 
+  "fry_index": {
+    "note": "The Fry Index — international PPC using a McDonald's medium fries (320 cal) as a common unit, à la the Big Mac Index. Local price converted to USD (2025 FX). Where is a fry calorie cheapest on Earth?",
+    "confidence": "medium",
+    "calories": 320,
+    "url": "https://www.gobankingrates.com/saving-money/food/how-much-meal-mcdonalds-costs-compare-united-states-europe/",
+    "countries": [
+      { "country": "India",       "local": "₹110",   "usd": 1.32, "note": "cheapest McD fry on Earth" },
+      { "country": "Japan",       "local": "¥330",   "usd": 2.21 },
+      { "country": "UK",          "local": "£1.79",  "usd": 2.27 },
+      { "country": "Eurozone",    "local": "€3.20",  "usd": 3.49 },
+      { "country": "USA",         "local": "$3.56",       "usd": 3.56 },
+      { "country": "Switzerland", "local": "CHF 5.60",    "usd": 6.16, "note": "priciest McD fry on Earth" }
+    ],
+    "local_icons": [
+      { "item": "UK chippy chips",        "usd": 3.82, "calories": 700, "note": "£~3 portion, big" },
+      { "item": "Belgian friterie frites","usd": 3.49, "calories": 468, "note": "€3.20 cone (150 g)" }
+    ]
+  },
+
+  "fry_flation": {
+    "note": "Fry-flation — US McDonald's medium fries nominal price over time (320 cal). Prices rose ~2x in a decade, nearly double general inflation. PPC computed by the tool.",
+    "confidence": "medium",
+    "calories": 320,
+    "url": "https://www.visualcapitalist.com/charted-mcdonalds-price-inflation-2014-2024/",
+    "series": [
+      { "year": 2000, "usd": 1.09 },
+      { "year": 2010, "usd": 1.49 },
+      { "year": 2014, "usd": 1.79 },
+      { "year": 2019, "usd": 2.29 },
+      { "year": 2020, "usd": 2.89 },
+      { "year": 2024, "usd": 4.19 },
+      { "year": 2025, "usd": 4.29 }
+    ]
+  },
+
   "food_loss_waste_overlay": {
     "note": "Cross-cutting overlay along field->consumer chain. NOT summed into tier1_fates (would double-count with the FBS 'losses' line). Reported as the Conscience Number.",
     "chain_loss_pct": { "value": 45, "source": "Roots & tubers have the highest FLW of any commodity group (>25%); regional range 33% (N.Africa/W&C Asia) to 60% (N.America/Oceania). Potato harvest often 'reduced by half from field to fork'. Fresh ~30% disposed vs processing ~4-5%.", "url": "https://www.tabledebates.org/research-library/waste-potato-supply-chain-potato-harvest-reduced-half-field-fork", "confidence": "medium" },

@@ -42,6 +42,8 @@ lost/wasted (range 25–60 %). See [waste_loss](waste_loss/REPORT.md).
   often sold with a fry (burger #1).
 - [**PPC — Pennies Per Calorie**](deep-dives/ppc/REPORT.md) — where a fry calorie
   is cheapest (home ~0.24 ¢/cal; Five Guys beats McDonald's 2:1).
+- [**The Fry Index & fry-flation**](deep-dives/fry-index/REPORT.md) — PPC across
+  countries (4.7× Zurich vs Mumbai) and over time (~3.9× since 2000).
 
 ## Capsules (to be written — inside-out)
 
