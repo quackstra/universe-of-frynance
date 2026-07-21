@@ -19,6 +19,7 @@ Total global fresh-weight potato production, all varieties, all countries
 | **MUSHT (real)** | **~0.30 billion miles** | Only the ~7.9 % that actually becomes fries |
 | **Curly fry** | **~12 M miles** | ~26 round-trips to the Moon — mostly Arby's |
 | **TPS (Taters/sec)** | **~79,000/s** | > the world's financial transactions/sec (🥔 > 💸) |
+| **PPC (cheapest fry cal)** | **0.24 ¢/cal** | Raw potato at home; fine-dining frites cost ~8× more |
 | **Conscience Number** | **~45 % wasted** | Spuds lost field→fork (roots & tubers waste most) |
 
 ## MUSHT — Make Underutilized Spuds Have Taste
@@ -98,6 +99,12 @@ python3 tools/musht.py         # recompute MUSHT
 ```
 
 ## Status
+
+**Run 5 — PPC: Pennies Per Calorie (2026-07-20):** added the value metric —
+where a fry calorie is cheapest to buy. **Home wins (~0.24 ¢/cal), ~8× cheaper
+than fine-dining frites; among restaurants big-portion Five Guys (0.54) beats
+McDonald's (1.11) 2:1.** New `tools/ppc.py` + [deep dive](analysis/deep-dives/ppc/REPORT.md)
++ dashboard PPC chart.
 
 **Run 4 — grounding pass (2026-07-20):** put sourced numbers on the Run-3
 scaffolds — processor corroboration (**McCain ~1 in 4 fries worldwide**; ~30 Mt

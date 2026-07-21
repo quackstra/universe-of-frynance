@@ -121,6 +121,30 @@
     "ubiquitous_pairings": { "beverage": "soda/soft drink (near-universal in combos)", "top_dip": "ketchup", "regional_dips": "mayo (BE/NL), malt vinegar (UK/IE), gravy+cheese=poutine (CA), aioli, ranch" }
   },
 
+  "ppc": {
+    "note": "PPC — Pennies Per Calorie for a fry (US cents / calorie = price_cents / calories). Portion-independent (a ratio), so medium chain fries and whole retail bags compare directly. Where is a fry calorie cheapest to buy? Prices US 2025 (🟡); calories from published nutrition (🟢).",
+    "confidence": "medium",
+    "sources": {
+      "prices": "https://menupricetracker.com/mcdonalds-menu/medium-french-fries",
+      "calories": "https://fastfoodnutrition.org/",
+      "retail": "https://www.walmart.com/ip/Great-Value-Regular-Cut-French-Fried-Potatoes-32-oz-Bag-Frozen/10534214",
+      "raw": "https://tools.myfooddata.com/nutrition-facts/170026/wt1"
+    },
+    "entries": [
+      { "source": "Raw potato (home)",        "tier": "home",         "price_usd": 0.85,  "calories": 350,  "portion": "per lb (raw, 77 cal/100g)" },
+      { "source": "Retail frozen (home oven)", "tier": "home",         "price_usd": 2.97,  "calories": 1067, "portion": "32 oz bag (100 cal/3oz)" },
+      { "source": "Five Guys",                 "tier": "fast_casual",  "price_usd": 5.19,  "calories": 953,  "portion": "regular (fresh-cut)" },
+      { "source": "In-N-Out",                  "tier": "fast_casual",  "price_usd": 2.15,  "calories": 370,  "portion": "fries" },
+      { "source": "Burger King",               "tier": "qsr",          "price_usd": 2.70,  "calories": 380,  "portion": "medium" },
+      { "source": "Chick-fil-A",               "tier": "qsr",          "price_usd": 3.09,  "calories": 420,  "portion": "medium waffle" },
+      { "source": "Arby's curly",              "tier": "qsr",          "price_usd": 3.09,  "calories": 410,  "portion": "medium curly" },
+      { "source": "Wendy's",                   "tier": "qsr",          "price_usd": 2.99,  "calories": 350,  "portion": "medium natural-cut" },
+      { "source": "Casual dining (side)",      "tier": "casual_dining","price_usd": 4.50,  "calories": 450,  "portion": "side of fries" },
+      { "source": "McDonald's",                "tier": "qsr",          "price_usd": 3.56,  "calories": 320,  "portion": "medium" },
+      { "source": "Fine dining (pommes frites)","tier": "fine_dining", "price_usd": 10.00, "calories": 500,  "portion": "frites" }
+    ]
+  },
+
   "food_loss_waste_overlay": {
     "note": "Cross-cutting overlay along field->consumer chain. NOT summed into tier1_fates (would double-count with the FBS 'losses' line). Reported as the Conscience Number.",
     "chain_loss_pct": { "value": 45, "source": "Roots & tubers have the highest FLW of any commodity group (>25%); regional range 33% (N.Africa/W&C Asia) to 60% (N.America/Oceania). Potato harvest often 'reduced by half from field to fork'. Fresh ~30% disposed vs processing ~4-5%.", "url": "https://www.tabledebates.org/research-library/waste-potato-supply-chain-potato-harvest-reduced-half-field-fork", "confidence": "medium" },

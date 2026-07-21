@@ -104,6 +104,7 @@ nav .nav-links a:hover{color:var(--text)}
     <li><a href="#charts">Charts</a></li>
     <li><a href="#musht">MUSHT</a></li>
     <li><a href="#tps">TPS</a></li>
+    <li><a href="#ppc">PPC</a></li>
     <li><a href="#insights">Insights</a></li>
   </ul>
 </div></nav>
@@ -111,7 +112,7 @@ nav .nav-links a:hover{color:var(--text)}
 <!-- HERO -->
 <section class="hero visible" id="hero">
   <div class="container" style="display:flex;flex-direction:column;align-items:center">
-    <div class="hero-badge">Open Research Project · Run 4 · 🥔🍟</div>
+    <div class="hero-badge">Open Research Project · Run 5 · 🥔🍟</div>
     <h1>Universe of Frynance</h1>
     <p class="tagline">What happens to every potato on Earth?</p>
     <div class="hero-numbers">
@@ -221,6 +222,18 @@ nav .nav-links a:hover{color:var(--text)}
   </div>
 </div></section>
 
+<!-- PPC -->
+<section id="ppc"><div class="container">
+  <h2>PPC — Pennies Per Calorie</h2>
+  <p class="section-subtitle">Where is it cheapest to actually <em>eat</em> a fry? PPC prices the only thing a fry delivers — energy: US cents ÷ calories. It's a ratio, so a medium chain fry and a whole retail bag compare directly.</p>
+  <div class="dd">
+    <span class="dd-badge">The Value Number</span>
+    <p class="dd-kicker"><b>Home wins by a mile</b> — a raw-potato calorie costs <b>0.24¢</b>, ~8× cheaper than fine-dining frites (2.00¢). And the big surprise among restaurants: <b>Five Guys is the cheapest fry per calorie</b> (0.54¢) despite feeling pricey — its giant 953-cal portion beats McDonald's, which is <b>2× dearer per calorie</b>.</p>
+    <div class="chart-canvas-wrap" style="height:440px"><canvas id="ppcBar"></canvas></div>
+    <p class="muted" style="font-size:.82rem;margin-top:10px">US 2025 medium/regular prices (vary widely by location) ÷ published calories. Measures cost-of-energy, not health. Reproduce: <span class="mono" style="color:var(--gold)">python3 tools/ppc.py</span>.</p>
+  </div>
+</div></section>
+
 <!-- INSIGHTS -->
 <section id="insights"><div class="container">
   <h2>Key Insights</h2>
@@ -229,7 +242,7 @@ nav .nav-links a:hover{color:var(--text)}
 </div></section>
 
 <footer><div class="container">
-  <p>Potato mass balance · 6 fates · MUSHT · TPS (NH + global) · fry-cuts, tiers &amp; companions · Run 4 · 2026-07-20</p>
+  <p>Potato mass balance · 6 fates · MUSHT · TPS · PPC · fry-cuts, tiers &amp; companions · Run 5 · 2026-07-20</p>
   <p><a href="https://github.com/quackstra/universe-of-frynance" target="_blank" rel="noopener">View the full research on GitHub</a> &middot; <a href="analysis/aggregate/BIG_NUMBER.md">The Big Number</a> &middot; sister to <a href="https://quackstra.github.io/universe-of-finance">Finance</a> &amp; <a href="https://quackstra.github.io/universe-of-movement">Movement</a></p>
   <p style="margin-top:14px">&copy; 2026 Universe of Frynance &middot; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
 </div></footer>
@@ -270,6 +283,14 @@ const TPS_ANNUAL=79220;
 const TIERSPLIT=[
   {t:"Independent / non-chain",p:55,c:"#8BA43C"},{t:"Chains (QSR + full-service)",p:45,c:"#F58518"},
 ];
+const PPC=[
+  {s:"Raw potato (home)",v:0.24,c:"#8BA43C"},{s:"Retail frozen (home)",v:0.28,c:"#8BA43C"},
+  {s:"Five Guys",v:0.54,c:"#E8B84B"},{s:"In-N-Out",v:0.58,c:"#E8B84B"},
+  {s:"Burger King",v:0.71,c:"#F58518"},{s:"Chick-fil-A",v:0.74,c:"#F58518"},
+  {s:"Arby's curly",v:0.75,c:"#F58518"},{s:"Wendy's",v:0.85,c:"#F58518"},
+  {s:"Casual dining",v:1.00,c:"#A0703C"},{s:"McDonald's",v:1.11,c:"#F58518"},
+  {s:"Fine dining frites",v:2.00,c:"#D64545"},
+];
 const INSIGHTS=[
   {i:"🍟",t:"<b>Only ~1 potato in 13</b> becomes a fry. Fries loom huge culturally but are just <b>~8%</b> of what Earth grows."},
   {i:"🌀",t:"<b>Curly fry ≈ 12 million miles</b> a year — ~26 round-trips to the Moon — and it's <b>almost all Arby's</b>. Waffle (~15 M mi) is Chick-fil-A."},
@@ -278,6 +299,7 @@ const INSIGHTS=[
   {i:"🌍",t:"<b>But globally, TPS is flat.</b> The holiday swing is 24% in the North, only ~10% worldwide — Thanksgiving is a Northern/Western phenomenon."},
   {i:"🏪",t:"<b>The non-chain tail wins.</b> Independents are ~422k US units and ~55% of foodservice fry volume; the chains you can name are the short head."},
   {i:"🍔",t:"<b>The burger is the fry's soulmate</b> — the #1 companion (~38% of fry orders), ahead of chicken (~24%). The fry is the great supporting side."},
+  {i:"💰",t:"<b>Home fries are ~8× cheaper per calorie</b> than fine-dining frites. Among restaurants, big-portion <b>Five Guys beats McDonald's 2:1</b> on pennies-per-calorie."},
   {i:"🌏",t:"<b>China + India grow ~40%</b> of the world's potatoes but process only 15% / 7% — that's why the global processed share is only ~17%."},
   {i:"🥔",t:"<b>Fresh still wins.</b> Despite the QSR image, ~<b>49%</b> of potatoes are sold and cooked whole. In the US, though, ~70% is processed."},
   {i:"🗑️",t:"<b>The bin rivals the plate.</b> ~45% of potatoes are lost field→fork (~169 Mt) — roots & tubers waste more than any crop group."},
@@ -338,6 +360,10 @@ function makeCharts(){
       {label:"Annual average",data:TPS_MONTHS.map(()=>TPS_ANNUAL),borderColor:"#b7a888",borderDash:[6,5],pointRadius:0,fill:false}]},
     options:{plugins:{legend:{position:"bottom",labels:{font:{size:11}}},tooltip:{callbacks:{afterLabel:c=>c.dataIndex===10?"Thanksgiving peak (NH)":c.dataIndex===0?"Post-holiday trough":""}}},
       scales:{y:{title:{display:true,text:"taters / second"},grid:{color:"#332a1c"}},x:{grid:{color:"#332a1c"}}},maintainAspectRatio:false}});
+  new Chart(document.getElementById("ppcBar"),{type:"bar",
+    data:{labels:PPC.map(d=>d.s),datasets:[{label:"¢ per calorie",data:PPC.map(d=>d.v),backgroundColor:PPC.map(d=>d.c)}]},
+    options:{indexAxis:"y",plugins:{legend:{display:false},title:{display:true,text:"Pennies per calorie of fry — cheapest at top (🟩 home · 🟨 fast-casual · 🟧 QSR · 🟥 fine)",color:"#fbf7ef"},tooltip:{callbacks:{label:c=>` ${c.parsed.x} ¢/cal`}}},
+      scales:{x:{title:{display:true,text:"US cents per calorie"},grid:{color:"#332a1c"}},y:{grid:{display:false}}},maintainAspectRatio:false}});
   // Sankey: production -> fates -> processing -> fries
   const sk=document.getElementById("sankey");
   if(sk && Chart.registry.controllers.get("sankey")){

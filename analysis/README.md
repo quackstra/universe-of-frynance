@@ -40,6 +40,8 @@ lost/wasted (range 25–60 %). See [waste_loss](waste_loss/REPORT.md).
   — straight/curly/waffle + QSR→fast-casual→casual→fine→independent tiers.
 - [**Fry companions tracker**](deep-dives/fry-companions/REPORT.md) — what's most
   often sold with a fry (burger #1).
+- [**PPC — Pennies Per Calorie**](deep-dives/ppc/REPORT.md) — where a fry calorie
+  is cheapest (home ~0.24 ¢/cal; Five Guys beats McDonald's 2:1).
 
 ## Capsules (to be written — inside-out)
 
