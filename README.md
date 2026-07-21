@@ -22,6 +22,7 @@ Total global fresh-weight potato production, all varieties, all countries
 | **PPC (cheapest fry cal)** | **0.24 ¢/cal** | Raw potato at home; fine-dining frites cost ~8× more |
 | **Fry Index** | **4.7× range** | A McD fry calorie costs 4.7× more in Zurich than Mumbai |
 | **CPI (Consumed Potato Index)** | **11 % → 2 %** | Potato's share of calories: Rwanda/Belarus ~11 %; fries: UK 2.5 % |
+| **MCE-PF / VAM** | **+0.5 · 74×** | Frying adds ~+0.5 income-elasticity; a QSR fry is ~74× the farm potato |
 | **Conscience Number** | **~45 % wasted** | Spuds lost field→fork (roots & tubers waste most) |
 
 ## MUSHT — Make Underutilized Spuds Have Taste
@@ -101,6 +102,14 @@ python3 tools/musht.py         # recompute MUSHT
 ```
 
 ## Status
+
+**Run 8 — the Value-Add Battery (2026-07-20):** measured the value of turning a
+potato into a fry every way we could. Headline **MCE-PF** (Marginal Consumption
+Elasticity of Processing a Fry) **≈ +0.5** — frying converts an inferior good
+(ε≈−0.4 to −1.2) into a normal one; the mechanism behind the whole processing
+industry. Plus **VAM** (a QSR fry ≈ 74× the farm-gate potato; farmer keeps ~1.4 %),
+a ~4× calorie multiplier, and an ~8× willingness-to-pay premium. New `tools/vam.py`
++ [deep dive](analysis/deep-dives/value-add/REPORT.md) + dashboard section.
 
 **Run 7 — the Consumed Potato Index (2026-07-20):** added **CPI** — potato's
 share of a country's calories, with a fries sub-share and US income deciles.

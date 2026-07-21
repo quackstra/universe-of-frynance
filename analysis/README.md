@@ -46,6 +46,9 @@ lost/wasted (range 25–60 %). See [waste_loss](waste_loss/REPORT.md).
   countries (4.7× Zurich vs Mumbai) and over time (3.9× nominal / 2.1× real).
 - [**CPI — the Consumed Potato Index**](deep-dives/consumed-potato-index/REPORT.md)
   — potato & fry share of calories by country and US income decile.
+- [**The Value-Add Battery (MCE-PF & VAM)**](deep-dives/value-add/REPORT.md) — how
+  many ways to measure the value of turning a potato into a fry (elasticity +0.5,
+  price 74×, calories 4×, WTP 8×).
 
 ## Capsules (to be written — inside-out)
 

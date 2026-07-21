@@ -220,6 +220,25 @@
     }
   },
 
+  "value_add": {
+    "note": "The Value-Add Battery — how many ways to measure the value of turning a potato into a fry. Anchored on MCE-PF (income-elasticity added by processing) and VAM (price multiple over the farm-gate potato).",
+    "confidence": "low",
+    "elasticity": {
+      "note": "Income elasticity of demand. Potato is a textbook inferior good; fries/processed are ~normal. MCE-PF = e_fry - e_potato = elasticity ADDED by processing.",
+      "potato": { "central": -0.4, "low": -1.2, "high": -0.4, "source": "potato income elasticity -0.4 to -1.19 (inferior good); demand migrates fresh->processed as income rises", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7830520/" },
+      "fry":    { "central": 0.1,  "low": 0.0,  "high": 0.2,  "source": "processed/fries ~normal good; resists the income decline that hits fresh potato", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7830520/" }
+    },
+    "farm_gate_usd_per_kg": { "value": 0.22, "source": "US processing-potato farm price ~$10/cwt", "confidence": "medium" },
+    "calorie_density_kcal_per_kg": { "raw": 770, "fried": 3100, "note": "frying adds oil -> ~4x energy density" },
+    "ppc_ref": { "raw_home": 0.24, "qsr_mcd": 1.11, "fine_dining": 2.00, "note": "pennies/calorie from the PPC deep dive; DIY vs served = the willingness-to-pay premium" },
+    "venues": [
+      { "venue": "Retail raw (boil at home)", "price_usd": 0.41, "raw_input_g": 220, "processing": "none (retail markup only)" },
+      { "venue": "Retail frozen (fry at home)", "price_usd": 0.36, "raw_input_g": 220, "processing": "factory-cut + par-fry + freeze" },
+      { "venue": "QSR (McDonald's medium)", "price_usd": 3.56, "raw_input_g": 220, "processing": "+ cook + serve + brand" },
+      { "venue": "Fine dining (pommes frites)", "price_usd": 10.00, "raw_input_g": 400, "processing": "+ hand-cut + chef + venue" }
+    ]
+  },
+
   "food_loss_waste_overlay": {
     "note": "Cross-cutting overlay along field->consumer chain. NOT summed into tier1_fates (would double-count with the FBS 'losses' line). Reported as the Conscience Number.",
     "chain_loss_pct": { "value": 45, "source": "Roots & tubers have the highest FLW of any commodity group (>25%); regional range 33% (N.Africa/W&C Asia) to 60% (N.America/Oceania). Potato harvest often 'reduced by half from field to fork'. Fresh ~30% disposed vs processing ~4-5%.", "url": "https://www.tabledebates.org/research-library/waste-potato-supply-chain-potato-harvest-reduced-half-field-fork", "confidence": "medium" },
